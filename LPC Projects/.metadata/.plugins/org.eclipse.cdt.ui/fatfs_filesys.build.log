@@ -1,0 +1,6 @@
+19:00:05 **** Incremental Build of configuration Debug for project fatfs_filesys ****
+make -r all 
+make: Nothing to be done for `all'.
+
+19:00:05 Build Finished (took 288ms)
+

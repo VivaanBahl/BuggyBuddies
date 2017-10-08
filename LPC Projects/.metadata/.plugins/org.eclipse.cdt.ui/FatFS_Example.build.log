@@ -1,0 +1,19 @@
+16:54:53 **** Incremental Build of configuration Debug for project FatFS_Example ****
+make -r all 
+Building target: FatFS_Example.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="FatFS_Example.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0 -mthumb -T "FatFS_Example_Debug.ld" -o "FatFS_Example.axf"  ./src/FatFS_Example.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/sysinit.o   
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:         828 B        32 KB      2.53%
+./src/FatFS_Example.o: In function `main':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/FatFS_Example/Debug/../src/FatFS_Example.c:32: undefined reference to `SystemCoreClockUpdate'
+         RamLoc8:           4 B         8 KB      0.05%
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/FatFS_Example/Debug/../src/FatFS_Example.c:36: undefined reference to `Board_Init'
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/FatFS_Example/Debug/../src/FatFS_Example.c:38: undefined reference to `Board_LED_Set'
+./src/sysinit.o: In function `SystemInit':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/FatFS_Example/Debug/../src/sysinit.c:67: undefined reference to `Board_SystemInit'
+collect2: error: ld returned 1 exit status
+make: *** [FatFS_Example.axf] Error 1
+
+16:54:53 Build Finished (took 71ms)
+
