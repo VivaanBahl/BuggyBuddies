@@ -1,6 +1,138 @@
-19:00:05 **** Incremental Build of configuration Debug for project fatfs_filesys ****
+19:39:13 **** Build of configuration Debug for project fatfs_filesys ****
 make -r all 
-make: Nothing to be done for `all'.
+Building file: ../src/cr_startup_lpc11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/fatfs_filesys/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/cr_startup_lpc11xx.d" -MT"src/cr_startup_lpc11xx.o" -MT"src/cr_startup_lpc11xx.d" -o "src/cr_startup_lpc11xx.o" "../src/cr_startup_lpc11xx.c"
+Finished building: ../src/cr_startup_lpc11xx.c
+ 
+Building file: ../src/crp.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/fatfs_filesys/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+Finished building: ../src/crp.c
+ 
+Building file: ../src/fatfs_filesys.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/fatfs_filesys/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/fatfs_filesys.d" -MT"src/fatfs_filesys.o" -MT"src/fatfs_filesys.d" -o "src/fatfs_filesys.o" "../src/fatfs_filesys.c"
+In file included from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/chip.h:232:0,
+                 from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc/board.h:35,
+                 from ../src/fatfs_filesys.c:15:
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+../src/fatfs_filesys.c: In function 'main':
+../src/fatfs_filesys.c:71:14: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+  FATFS *fs = malloc(sizeof(FATFS));
+              ^
+../src/fatfs_filesys.c:71:14: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+../src/fatfs_filesys.c:74:12: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  FIL *fp = malloc(sizeof(FIL));
+            ^
+../src/fatfs_filesys.c:78:27: warning: pointer targets in passing argument 4 of 'f_read' differ in signedness [-Wpointer-sign]
+   if (f_read(fp, buf, 16, &j) == FR_OK) {
+                           ^
+In file included from ../src/fatfs_filesys.c:20:0:
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ff.h:244:9: note: expected 'UINT * {aka unsigned int *}' but argument is of type 'int *'
+ FRESULT f_read (FIL* fp, void* buff, UINT btr, UINT* br);   /* Read data from the file */
+         ^
+Finished building: ../src/fatfs_filesys.c
+ 
+Building file: ../src/sysinit.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/fatfs_filesys/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/sysinit.d" -MT"src/sysinit.o" -MT"src/sysinit.d" -o "src/sysinit.o" "../src/sysinit.c"
+In file included from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/chip.h:232:0,
+                 from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc/board.h:35,
+                 from ../src/sysinit.c:35:
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+Finished building: ../src/sysinit.c
+ 
+Building file: /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/fatfs_filesys/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"source/diskio.d" -MT"source/diskio.o" -MT"source/diskio.d" -o "source/diskio.o" "/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c"
+In file included from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/chip.h:232:0,
+                 from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc/board.h:35,
+                 from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:11:
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c: In function 'disk_status':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:30:6: warning: unused variable 'result' [-Wunused-variable]
+  int result;
+      ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c: In function 'disk_initialize':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:74:11: warning: variable 'argument' set but not used [-Wunused-but-set-variable]
+  uint32_t argument;
+           ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:72:6: warning: unused variable 'result' [-Wunused-variable]
+  int result;
+      ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c: In function 'disk_read':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:206:6: warning: unused variable 'result' [-Wunused-variable]
+  int result;
+      ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c: In function 'disk_write':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:284:6: warning: unused variable 'result' [-Wunused-variable]
+  int result;
+      ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c: In function 'disk_ioctl':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:332:6: warning: unused variable 'result' [-Wunused-variable]
+  int result;
+      ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c: In function 'disk_status':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:38:10: warning: 'stat' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   return stat;
+          ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c: In function 'disk_initialize':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:82:10: warning: 'stat' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   return stat;
+          ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c: In function 'disk_read':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:216:10: warning: 'res' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   return res;
+          ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c: In function 'disk_write':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:294:10: warning: 'res' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   return res;
+          ^
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c: In function 'disk_ioctl':
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c:339:10: warning: 'res' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   return res;
+          ^
+Finished building: /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/diskio.c
+ 
+Building file: /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ff.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/fatfs_filesys/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"source/ff.d" -MT"source/ff.o" -MT"source/ff.d" -o "source/ff.o" "/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ff.c"
+Finished building: /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ff.c
+ 
+Building file: /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ffsystem.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/fatfs_filesys/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"source/ffsystem.d" -MT"source/ffsystem.o" -MT"source/ffsystem.d" -o "source/ffsystem.o" "/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ffsystem.c"
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ffsystem.c:44:1: warning: "/*" within comment [-Wcomment]
+ /*------------------------------------------------------------------------*/
+ ^
+Finished building: /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ffsystem.c
+ 
+Building file: /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ffunicode.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/fatfs_filesys/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"source/ffunicode.d" -MT"source/ffunicode.o" -MT"source/ffunicode.d" -o "source/ffunicode.o" "/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ffunicode.c"
+Finished building: /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Libraries/ff13/source/ffunicode.c
+ 
+Building target: fatfs_filesys.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug" -L"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug" -Xlinker -Map="fatfs_filesys.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0 -mthumb -T "fatfs_filesys_Debug.ld" -o "fatfs_filesys.axf"  ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/fatfs_filesys.o ./src/sysinit.o  ./source/diskio.o ./source/ff.o ./source/ffsystem.o ./source/ffunicode.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       15888 B        32 KB     48.49%
+         RamLoc8:        6568 B         8 KB     80.18%
+Finished building target: fatfs_filesys.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "fatfs_filesys.axf"; # arm-none-eabi-objcopy -v -O binary "fatfs_filesys.axf" "fatfs_filesys.bin" ; # checksum -p LPC11C24_301 -d "fatfs_filesys.bin";
+   text	   data	    bss	    dec	    hex	filename
+  15888	      0	   6568	  22456	   57b8	fatfs_filesys.axf
+ 
 
-19:00:05 Build Finished (took 288ms)
+19:39:15 Build Finished (took 2s.90ms)
 
