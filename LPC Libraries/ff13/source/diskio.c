@@ -102,6 +102,10 @@ DSTATUS disk_initialize (
 
 		Chip_SSP_RWFrames_Blocking(LPC_SSP, &xf_setup);
 
+		// http://elm-chan.org/docs/mmc/im/sdinit.png
+		// flowchart for SD init
+		// we just choose to send cmd1 3 times because vivaan is dumb lol
+
 		init_tx_buf[0] = cmd_header;
 		init_tx_buf[1] = 0;
 		init_tx_buf[2] = 0;
