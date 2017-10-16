@@ -1,6 +1,27 @@
-14:07:32 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_periph_blinky ****
+15:29:13 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_periph_blinky ****
 make -r all 
-make: Nothing to be done for `all'.
+Building file: ../example/src/blinky.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M0 -I"/Users/vivaanbahl/Documents/LPCXpresso_8.2.2/workspace/nxp_lpcxpresso_11c24_periph_blinky/example/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"example/src/blinky.d" -MT"example/src/blinky.o" -MT"example/src/blinky.d" -o "example/src/blinky.o" "../example/src/blinky.c"
+In file included from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/chip.h:232:0,
+                 from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc/board.h:35,
+                 from ../example/src/blinky.c:32:
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+Finished building: ../example/src/blinky.c
+ 
+Building target: nxp_lpcxpresso_11c24_periph_blinky.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug" -L"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug" -Xlinker -Map="nxp_lpcxpresso_11c24_periph_blinky.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "nxp_lpcxpresso_11c24_periph_blinky_Debug.ld" -o "nxp_lpcxpresso_11c24_periph_blinky.axf"  ./example/src/blinky.o ./example/src/cr_startup_lpc11xx.o ./example/src/sysinit.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
+Finished building target: nxp_lpcxpresso_11c24_periph_blinky.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "nxp_lpcxpresso_11c24_periph_blinky.axf"; # arm-none-eabi-objcopy -O binary "nxp_lpcxpresso_11c24_periph_blinky.axf" "nxp_lpcxpresso_11c24_periph_blinky.bin" ; checksum -p LPC11C24_301 -d "nxp_lpcxpresso_11c24_periph_blinky.bin";
+   text	   data	    bss	    dec	    hex	filename
+   4904	      0	    340	   5244	   147c	nxp_lpcxpresso_11c24_periph_blinky.axf
+ 
 
-14:07:32 Build Finished (took 73ms)
+15:29:13 Build Finished (took 440ms)
 

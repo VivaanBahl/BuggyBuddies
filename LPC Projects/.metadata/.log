@@ -1335,3 +1335,237 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/vivaa
 
 !ENTRY org.eclipse.ui 4 4 2017-10-12 17:03:04.009
 !MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-10-15 11:44:54.753
+!MESSAGE Indexed 'nxp_lpcxpresso_11c24_periph_blinky' (3 sources, 32 headers) in 1.58 sec: 2,157 declarations; 2,895 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-10-15 11:55:01.360
+!MESSAGE Indexed 'PWM_Sample' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-10-15 12:33:14.892
+!MESSAGE Indexed 'nxp_lpcxpresso_11c24_periph_watchdog' (3 sources, 32 headers) in 0.336 sec: 2,158 declarations; 2,918 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-10-15 12:33:15.090
+!MESSAGE Indexed 'nxp_lpcxpresso_11c24_periph_pinint' (3 sources, 32 headers) in 0.184 sec: 2,154 declarations; 2,929 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+!SESSION 2017-10-15 12:35:50.110 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/vivaanbahl/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects -keyring /Users/vivaanbahl/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.ui 4 4 2017-10-15 12:35:58.732
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-10-15 12:35:58.749
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY org.eclipse.core.net 1 0 2017-10-15 12:36:01.743
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-10-15 12:36:19.556
+!MESSAGE Indexed 'nxp_lpcxpresso_11c24_periph_blinky' (3 sources, 32 headers) in 0.702 sec: 2,157 declarations; 2,895 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-15 13:41:45.238
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-15 14:38:46.160
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@5b149240): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.io.IOException: Client unable to receive full packet from server' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2017-10-15 14:38:46.161
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.io.IOException: Client unable to receive full packet from server
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:154)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-15 14:39:15.754
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@16abb596): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.io.IOException: Client unable to receive full packet from server' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2017-10-15 14:39:15.754
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.io.IOException: Client unable to receive full packet from server
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:154)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-15 14:41:36.803
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@2b0fb5c): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.io.IOException: Client unable to receive full packet from server' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2017-10-15 14:41:36.803
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.io.IOException: Client unable to receive full packet from server
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:154)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-15 14:51:09.724
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+
+!ENTRY com.crt.dsfdebug 2 0 2017-10-15 14:51:12.400
+!MESSAGE Termi&nate/Disconnect All is not enabled.
+
+To terminate debug sessions, first select a debug session in the Debug View and then select Terminate again.
+
+!ENTRY com.crt.etmetb 1 0 2017-10-15 14:55:20.147
+!MESSAGE Exception when reading from client
+!STACK 0
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:209)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at com.crt.etmetb.redlink.RedlinkClient.fillArrayFromSocket(RedlinkClient.java:196)
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:147)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-15 14:55:20.188
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@28f4a03): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.io.IOException: Client unable to receive full packet from server' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2017-10-15 14:55:20.188
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.io.IOException: Client unable to receive full packet from server
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:154)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-15 15:03:47.789
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-15 15:04:25.073
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@f05f30a): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.io.IOException: Client unable to receive full packet from server' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2017-10-15 15:04:25.073
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.io.IOException: Client unable to receive full packet from server
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:154)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-15 15:22:26.421
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@3f3633ff): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.io.IOException: Client unable to receive full packet from server' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2017-10-15 15:22:26.421
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.io.IOException: Client unable to receive full packet from server
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:154)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-15 15:26:22.418
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+
+!ENTRY com.crt.dsfdebug 2 0 2017-10-15 15:26:24.909
+!MESSAGE Termi&nate/Disconnect All is not enabled.
+
+To terminate debug sessions, first select a debug session in the Debug View and then select Terminate again.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-15 15:26:59.676
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@628fb2f6): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.io.IOException: Client unable to receive full packet from server' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2017-10-15 15:26:59.676
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.io.IOException: Client unable to receive full packet from server
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:154)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.crt.etmetb 1 0 2017-10-15 15:36:08.462
+!MESSAGE Exception when reading from client
+!STACK 0
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:209)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at com.crt.etmetb.redlink.RedlinkClient.fillArrayFromSocket(RedlinkClient.java:196)
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:147)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-15 15:36:08.483
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@997ff99): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.io.IOException: Client unable to receive full packet from server' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2017-10-15 15:36:08.483
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.io.IOException: Client unable to receive full packet from server
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:154)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-15 15:37:24.288
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@401873e4): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.io.IOException: Client unable to receive full packet from server' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2017-10-15 15:37:24.288
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.io.IOException: Client unable to receive full packet from server
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:154)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-15 15:38:29.890
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@625f6b41): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.io.IOException: Client unable to receive full packet from server' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2017-10-15 15:38:29.890
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.io.IOException: Client unable to receive full packet from server
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:154)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-10-15 15:48:04.293
+!MESSAGE Indexed 'quadrature_encoder' (4 sources, 34 headers) in 0.441 sec: 2,160 declarations; 3,016 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-10-15 15:48:38.583
+!MESSAGE Indexed 'quadrature_encoder' (4 sources, 34 headers) in 0.171 sec: 2,160 declarations; 3,016 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.crt.dsfdebug 2 0 2017-10-15 16:06:06.656
+!MESSAGE Termi&nate/Disconnect All is not enabled.
+
+To terminate debug sessions, first select a debug session in the Debug View and then select Terminate again.
