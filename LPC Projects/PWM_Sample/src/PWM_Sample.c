@@ -46,15 +46,16 @@ int main(void)
 	Board_Init();
 
 	/* Enable and setup SysTick Timer at a periodic rate */
-	SysTick_Config(SystemCoreClock / 10);
+	SysTick_Config(SystemCoreClock);
 
 	/* Enable timer 1 clock */
 	Chip_TIMER_Init(LPC_TIMER16_0);
 
 	/* Timer setup for match and interrupt at TICKRATE_HZ */
 	Chip_TIMER_Reset(LPC_TIMER16_0);
-	LPC_TIMER16_0->MR[0] = 1000;
-	LPC_TIMER16_0->MR[3] = 10000;
+	LPC_TIMER16_0->MR[0] = 0;
+	LPC_TIMER16_0->MR[3] = 5000;
+	LPC_TIMER16_0->PR = 48;
 	LPC_TIMER16_0->MCR = 0;
 	Chip_TIMER_ResetOnMatchEnable(LPC_TIMER16_0, 3);
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO0_8, (IOCON_FUNC2 | IOCON_MODE_INACT));
@@ -64,9 +65,15 @@ int main(void)
 
 	/* LEDs toggle in interrupt handlers */
 
-	volatile static int i = 0;
 	while (1) {
-		i++;
+		for (int i = 0; i < 1500; i++)
+		{
+			steering_set(i);
+		}
+		for (int i = 0; i > -1500; i--)
+		{
+			steering_set(i);
+		}
 	}
 
 	return 0;

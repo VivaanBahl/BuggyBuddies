@@ -127,35 +127,59 @@ Discarded input sections
  .group         0x0000000000000000        0x8 ./src/steering_driver.o
  .group         0x0000000000000000        0x8 ./src/steering_driver.o
  .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
+ .group         0x0000000000000000        0x8 ./src/steering_driver.o
  .text          0x0000000000000000        0x0 ./src/steering_driver.o
  .data          0x0000000000000000        0x0 ./src/steering_driver.o
  .bss           0x0000000000000000        0x0 ./src/steering_driver.o
- .text.steer_set_velocity
-                0x0000000000000000       0xcc ./src/steering_driver.o
- .text.steering_set
-                0x0000000000000000       0xa8 ./src/steering_driver.o
- .bss.steer_set_prev_ticks.3958
-                0x0000000000000000        0x4 ./src/steering_driver.o
- .bss.steer_set_prev_velocity.3959
-                0x0000000000000000        0x4 ./src/steering_driver.o
- .bss.steer_set_error_prev.3973
-                0x0000000000000000        0x4 ./src/steering_driver.o
- .debug_info    0x0000000000000000      0x1b2 ./src/steering_driver.o
- .debug_abbrev  0x0000000000000000       0xab ./src/steering_driver.o
- .debug_aranges
-                0x0000000000000000       0x28 ./src/steering_driver.o
- .debug_ranges  0x0000000000000000       0x18 ./src/steering_driver.o
- .debug_macro   0x0000000000000000       0xc0 ./src/steering_driver.o
  .debug_macro   0x0000000000000000      0x83e ./src/steering_driver.o
  .debug_macro   0x0000000000000000       0x10 ./src/steering_driver.o
  .debug_macro   0x0000000000000000      0x12d ./src/steering_driver.o
- .debug_macro   0x0000000000000000       0x28 ./src/steering_driver.o
- .debug_line    0x0000000000000000      0x15d ./src/steering_driver.o
- .debug_str     0x0000000000000000     0x2d16 ./src/steering_driver.o
- .comment       0x0000000000000000       0x6f ./src/steering_driver.o
- .debug_frame   0x0000000000000000       0x50 ./src/steering_driver.o
- .ARM.attributes
-                0x0000000000000000       0x31 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000      0x5b2 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x22 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x10 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x1f ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x3a ./src/steering_driver.o
+ .debug_macro   0x0000000000000000      0x241 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000      0x117 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x22 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0xb2 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x10 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000      0x137 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x4c ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x16 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000      0x31a ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x2e ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0xb8 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x11 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x7c ./src/steering_driver.o
+ .debug_macro   0x0000000000000000      0x21c ./src/steering_driver.o
+ .debug_macro   0x0000000000000000      0x113 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x10 ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x9a ./src/steering_driver.o
+ .debug_macro   0x0000000000000000       0x20 ./src/steering_driver.o
  .group         0x0000000000000000        0x8 ./src/sysinit.o
  .group         0x0000000000000000        0x8 ./src/sysinit.o
  .group         0x0000000000000000        0x8 ./src/sysinit.o
@@ -845,7 +869,6 @@ Discarded input sections
  .text.exit     0x0000000000000000       0x2c /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
  .text.abort    0x0000000000000000       0x10 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
  .text.abs      0x0000000000000000        0x8 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
- .text.labs     0x0000000000000000        0x8 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
  .text.div      0x0000000000000000       0x20 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
  .text.ldiv     0x0000000000000000       0x20 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
  .bss._exitvector
@@ -859,9 +882,6 @@ Discarded input sections
                 0x0000000000000000        0x4 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
  .data._random_k
                 0x0000000000000000        0x4 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
- .comment       0x0000000000000000       0x6f /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
- .ARM.attributes
-                0x0000000000000000       0x31 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
  .text          0x0000000000000000        0x0 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(initio.o)
  .data          0x0000000000000000        0x0 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(initio.o)
  .bss           0x0000000000000000        0x0 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(initio.o)
@@ -1104,7 +1124,7 @@ END GROUP
                 0x0000000010002000                __top_RamLoc8 = 0x10002000
                 0x0000000010002000                __top_RAM = 0x10002000
 
-.text           0x0000000000000000      0xdc0
+.text           0x0000000000000000      0xff0
  FILL mask 0xff
                 0x0000000000000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -1113,13 +1133,13 @@ END GROUP
                 0x00000000000000c0                . = ALIGN (0x4)
                 0x00000000000000c0                __section_table_start = .
                 0x00000000000000c0                __data_section_table = .
-                0x00000000000000c0        0x4 LONG 0xdc0 LOADADDR (.data)
+                0x00000000000000c0        0x4 LONG 0xff0 LOADADDR (.data)
                 0x00000000000000c4        0x4 LONG 0x10000000 ADDR (.data)
                 0x00000000000000c8        0x4 LONG 0x0 SIZEOF (.data)
                 0x00000000000000cc                __data_section_table_end = .
                 0x00000000000000cc                __bss_section_table = .
                 0x00000000000000cc        0x4 LONG 0x10000000 ADDR (.bss)
-                0x00000000000000d0        0x4 LONG 0x8 SIZEOF (.bss)
+                0x00000000000000d0        0x4 LONG 0x10 SIZEOF (.bss)
                 0x00000000000000d4                __bss_section_table_end = .
                 0x00000000000000d4                __section_table_end = .
  *(.after_vectors*)
@@ -1178,150 +1198,166 @@ END GROUP
  .text.TIMER16_0_IRQHandler
                 0x0000000000000514       0x2c ./src/PWM_Sample.o
                 0x0000000000000514                TIMER16_0_IRQHandler
- .text.main     0x0000000000000540       0x88 ./src/PWM_Sample.o
+ .text.main     0x0000000000000540       0xb8 ./src/PWM_Sample.o
                 0x0000000000000540                main
+ .text.map_signal
+                0x00000000000005f8       0x30 ./src/steering_driver.o
+                0x00000000000005f8                map_signal
+ .text.clamp    0x0000000000000628       0x28 ./src/steering_driver.o
+                0x0000000000000628                clamp
+ .text.servo_set_us
+                0x0000000000000650       0x28 ./src/steering_driver.o
+                0x0000000000000650                servo_set_us
+ .text.steer_set_velocity
+                0x0000000000000678       0xd0 ./src/steering_driver.o
+                0x0000000000000678                steer_set_velocity
+ .text.steering_set
+                0x0000000000000748       0xa8 ./src/steering_driver.o
+                0x0000000000000748                steering_set
  .text.SystemInit
-                0x00000000000005c8       0x10 ./src/sysinit.o
-                0x00000000000005c8                SystemInit
+                0x00000000000007f0       0x10 ./src/sysinit.o
+                0x00000000000007f0                SystemInit
  .text.Chip_GPIO_SetPinState
-                0x00000000000005d8       0x4c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+                0x0000000000000800       0x4c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
  .text.Chip_GPIO_SetPinDIROutput
-                0x0000000000000624       0x4c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+                0x000000000000084c       0x4c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
  .text.Chip_GPIO_SetPinToggle
-                0x0000000000000670       0x5c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+                0x0000000000000898       0x5c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
  .text.Board_LED_Init
-                0x00000000000006cc       0x18 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+                0x00000000000008f4       0x18 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
  .text.Board_LED_Set
-                0x00000000000006e4       0x34 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
-                0x00000000000006e4                Board_LED_Set
+                0x000000000000090c       0x34 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+                0x000000000000090c                Board_LED_Set
  .text.Board_LED_Toggle
-                0x0000000000000718       0x2c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
-                0x0000000000000718                Board_LED_Toggle
+                0x0000000000000940       0x2c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+                0x0000000000000940                Board_LED_Toggle
  .text.Board_Init
-                0x0000000000000744       0x18 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
-                0x0000000000000744                Board_Init
+                0x000000000000096c       0x18 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+                0x000000000000096c                Board_Init
  .text.Chip_FMC_SetFLASHAccess
-                0x000000000000075c       0x30 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x0000000000000984       0x30 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .text.Chip_Clock_SetupSystemPLL
-                0x000000000000078c       0x38 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x00000000000009b4       0x38 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .text.Chip_Clock_IsSystemPLLLocked
-                0x00000000000007c4       0x1c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x00000000000009ec       0x1c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .text.Chip_Clock_SetSysClockDiv
-                0x00000000000007e0       0x1c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x0000000000000a08       0x1c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .text.Chip_Clock_EnablePeriphClock
-                0x00000000000007fc       0x30 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x0000000000000a24       0x30 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .text.Chip_IOCON_PinMuxSet
-                0x000000000000082c       0x28 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x0000000000000a54       0x28 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .text.SystemSetupClocking
-                0x0000000000000854       0x68 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x0000000000000a7c       0x68 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .text.SystemSetupMuxing
-                0x00000000000008bc       0x4c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x0000000000000ae4       0x4c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .text.Board_SystemInit
-                0x0000000000000908       0x14 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
-                0x0000000000000908                Board_SystemInit
+                0x0000000000000b30       0x14 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x0000000000000b30                Board_SystemInit
  .text.SystemCoreClockUpdate
-                0x000000000000091c       0x18 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
-                0x000000000000091c                SystemCoreClockUpdate
+                0x0000000000000b44       0x18 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+                0x0000000000000b44                SystemCoreClockUpdate
  .text.Chip_Clock_GetMainOscRate
-                0x0000000000000934       0x14 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000b5c       0x14 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
  .text.Chip_Clock_GetIntOscRate
-                0x0000000000000948       0x10 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000b70       0x10 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
  .text.Chip_Clock_GetWDTLFORate
-                0x0000000000000958       0x48 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000b80       0x48 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
  .text.Chip_Clock_GetPLLFreq
-                0x00000000000009a0       0x24 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000bc8       0x24 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
  .text.Chip_Clock_SetSystemPLLSource
-                0x00000000000009c4       0x2c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
-                0x00000000000009c4                Chip_Clock_SetSystemPLLSource
+                0x0000000000000bec       0x2c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000bec                Chip_Clock_SetSystemPLLSource
  .text.Chip_Clock_SetMainClockSource
-                0x00000000000009f0       0x2c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
-                0x00000000000009f0                Chip_Clock_SetMainClockSource
+                0x0000000000000c18       0x2c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000c18                Chip_Clock_SetMainClockSource
  .text.Chip_Clock_GetWDTOSCRate
-                0x0000000000000a1c       0x1c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
-                0x0000000000000a1c                Chip_Clock_GetWDTOSCRate
+                0x0000000000000c44       0x1c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000c44                Chip_Clock_GetWDTOSCRate
  .text.Chip_Clock_GetSystemPLLInClockRate
-                0x0000000000000a38       0x40 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
-                0x0000000000000a38                Chip_Clock_GetSystemPLLInClockRate
+                0x0000000000000c60       0x40 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000c60                Chip_Clock_GetSystemPLLInClockRate
  .text.Chip_Clock_GetSystemPLLOutClockRate
-                0x0000000000000a78       0x24 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
-                0x0000000000000a78                Chip_Clock_GetSystemPLLOutClockRate
+                0x0000000000000ca0       0x24 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000ca0                Chip_Clock_GetSystemPLLOutClockRate
  .text.Chip_Clock_GetMainClockRate
-                0x0000000000000a9c       0x60 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
-                0x0000000000000a9c                Chip_Clock_GetMainClockRate
+                0x0000000000000cc4       0x60 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000cc4                Chip_Clock_GetMainClockRate
  .text.Chip_Clock_GetSystemClockRate
-                0x0000000000000afc       0x24 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
-                0x0000000000000afc                Chip_Clock_GetSystemClockRate
+                0x0000000000000d24       0x24 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000d24                Chip_Clock_GetSystemClockRate
  .text.Chip_Clock_EnablePeriphClock
-                0x0000000000000b20       0x30 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+                0x0000000000000d48       0x30 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
  .text.Chip_GPIO_Init
-                0x0000000000000b50       0x18 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
-                0x0000000000000b50                Chip_GPIO_Init
+                0x0000000000000d78       0x18 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+                0x0000000000000d78                Chip_GPIO_Init
  .text.Chip_SYSCTL_PowerDown
-                0x0000000000000b68       0x40 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
-                0x0000000000000b68                Chip_SYSCTL_PowerDown
+                0x0000000000000d90       0x40 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+                0x0000000000000d90                Chip_SYSCTL_PowerDown
  .text.Chip_SYSCTL_PowerUp
-                0x0000000000000ba8       0x40 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
-                0x0000000000000ba8                Chip_SYSCTL_PowerUp
+                0x0000000000000dd0       0x40 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+                0x0000000000000dd0                Chip_SYSCTL_PowerUp
  .text.Chip_Clock_EnablePeriphClock
-                0x0000000000000be8       0x30 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+                0x0000000000000e10       0x30 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
  .text.Chip_TIMER_GetClock
-                0x0000000000000c18       0x60 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+                0x0000000000000e40       0x60 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
  .text.Chip_TIMER_Init
-                0x0000000000000c78       0x20 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
-                0x0000000000000c78                Chip_TIMER_Init
+                0x0000000000000ea0       0x20 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+                0x0000000000000ea0                Chip_TIMER_Init
  .text.Chip_TIMER_Reset
-                0x0000000000000c98       0x38 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
-                0x0000000000000c98                Chip_TIMER_Reset
+                0x0000000000000ec0       0x38 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+                0x0000000000000ec0                Chip_TIMER_Reset
  .text.__weak_main
-                0x0000000000000cd0        0x8 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(__weak__main.o)
-                0x0000000000000cd0                __main
-                0x0000000000000cd0                __weak_main
+                0x0000000000000ef8        0x8 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(__weak__main.o)
+                0x0000000000000ef8                __main
+                0x0000000000000ef8                __weak_main
+ .text.labs     0x0000000000000f00        0x8 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
+                0x0000000000000f00                labs
  .text.__aeabi_division_idivmod
-                0x0000000000000cd8       0x78 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/libcr_eabihelpers.a(division_32.o)
-                0x0000000000000cd8                __aeabi_idiv
-                0x0000000000000cd8                __aeabi_idivmod
-                0x0000000000000cde                __aeabi_uidiv
-                0x0000000000000cde                __aeabi_uidivmod
+                0x0000000000000f08       0x78 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/libcr_eabihelpers.a(division_32.o)
+                0x0000000000000f08                __aeabi_idiv
+                0x0000000000000f08                __aeabi_idivmod
+                0x0000000000000f0e                __aeabi_uidiv
+                0x0000000000000f0e                __aeabi_uidivmod
  .text.__aeabi_division_idiv0
-                0x0000000000000d50        0x2 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/libcr_eabihelpers.a(division_idiv0.o)
-                0x0000000000000d50                __aeabi_idiv0
+                0x0000000000000f80        0x2 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/libcr_eabihelpers.a(division_idiv0.o)
+                0x0000000000000f80                __aeabi_idiv0
  *(.rodata .rodata.* .constdata .constdata.*)
- *fill*         0x0000000000000d52        0x2 ff
+ *fill*         0x0000000000000f82        0x2 ff
  .rodata.OscRateIn
-                0x0000000000000d54        0x4 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
-                0x0000000000000d54                OscRateIn
+                0x0000000000000f84        0x4 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+                0x0000000000000f84                OscRateIn
  .rodata.pinmuxing
-                0x0000000000000d58       0x28 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x0000000000000f88       0x28 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .rodata.wdtOSCRate
-                0x0000000000000d80       0x40 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
-                0x0000000000000dc0                . = ALIGN (0x4)
+                0x0000000000000fb0       0x40 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000ff0                . = ALIGN (0x4)
 
-.glue_7         0x0000000000000dc0        0x0
- .glue_7        0x0000000000000dc0        0x0 linker stubs
+.glue_7         0x0000000000000ff0        0x0
+ .glue_7        0x0000000000000ff0        0x0 linker stubs
 
-.glue_7t        0x0000000000000dc0        0x0
- .glue_7t       0x0000000000000dc0        0x0 linker stubs
+.glue_7t        0x0000000000000ff0        0x0
+ .glue_7t       0x0000000000000ff0        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000000dc0        0x0
- .vfp11_veneer  0x0000000000000dc0        0x0 linker stubs
+.vfp11_veneer   0x0000000000000ff0        0x0
+ .vfp11_veneer  0x0000000000000ff0        0x0 linker stubs
 
-.v4_bx          0x0000000000000dc0        0x0
- .v4_bx         0x0000000000000dc0        0x0 linker stubs
+.v4_bx          0x0000000000000ff0        0x0
+ .v4_bx         0x0000000000000ff0        0x0 linker stubs
 
-.iplt           0x0000000000000dc0        0x0
- .iplt          0x0000000000000dc0        0x0 ./src/PWM_Sample.o
+.iplt           0x0000000000000ff0        0x0
+ .iplt          0x0000000000000ff0        0x0 ./src/PWM_Sample.o
 
-.rel.dyn        0x0000000000000dc0        0x0
- .rel.iplt      0x0000000000000dc0        0x0 ./src/PWM_Sample.o
+.rel.dyn        0x0000000000000ff0        0x0
+ .rel.iplt      0x0000000000000ff0        0x0 ./src/PWM_Sample.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000000000dc0                __exidx_start = .
+                0x0000000000000ff0                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000000000dc0                __exidx_end = .
-                0x0000000000000dc0                _etext = .
+                0x0000000000000ff0                __exidx_end = .
+                0x0000000000000ff0                _etext = .
 
 .uninit_RESERVED
                 0x0000000010000000        0x0
@@ -1329,7 +1365,7 @@ END GROUP
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _end_uninit_RESERVED = .
 
-.data           0x0000000010000000        0x0 load address 0x0000000000000dc0
+.data           0x0000000010000000        0x0 load address 0x0000000000000ff0
  FILL mask 0xff
                 0x0000000010000000                _data = .
  *(vtable)
@@ -1338,57 +1374,64 @@ END GROUP
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _edata = .
 
-.igot.plt       0x0000000010000000        0x0 load address 0x0000000000000dc0
+.igot.plt       0x0000000010000000        0x0 load address 0x0000000000000ff0
  .igot.plt      0x0000000010000000        0x0 ./src/PWM_Sample.o
 
-.bss            0x0000000010000000        0x8 load address 0x0000000000000dc0
+.bss            0x0000000010000000       0x10 load address 0x0000000000000ff0
                 0x0000000010000000                _bss = .
  *(.bss*)
- .bss.i.5945    0x0000000010000000        0x4 ./src/PWM_Sample.o
+ .bss.steer_set_prev_ticks.6063
+                0x0000000010000000        0x4 ./src/steering_driver.o
+ .bss.steer_set_prev_velocity.6064
+                0x0000000010000004        0x4 ./src/steering_driver.o
+ .bss.steer_set_error_prev.6076
+                0x0000000010000008        0x4 ./src/steering_driver.o
  *(COMMON)
- COMMON         0x0000000010000004        0x4 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
-                0x0000000010000004                SystemCoreClock
-                0x0000000010000008                . = ALIGN (0x4)
-                0x0000000010000008                _ebss = .
+ COMMON         0x000000001000000c        0x4 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+                0x000000001000000c                SystemCoreClock
+                0x0000000010000010                . = ALIGN (0x4)
+                0x0000000010000010                _ebss = .
                 [!provide]                        PROVIDE (end, .)
 
-.noinit         0x0000000010000008        0x0 load address 0x0000000000000dc0
-                0x0000000010000008                _noinit = .
+.noinit         0x0000000010000010        0x0 load address 0x0000000000000ff0
+                0x0000000010000010                _noinit = .
  *(.noinit*)
-                0x0000000010000008                . = ALIGN (0x4)
-                0x0000000010000008                _end_noinit = .
-                0x0000000010000008                PROVIDE (_pvHeapStart, DEFINED (__user_heap_base)?__user_heap_base:.)
+                0x0000000010000010                . = ALIGN (0x4)
+                0x0000000010000010                _end_noinit = .
+                0x0000000010000010                PROVIDE (_pvHeapStart, DEFINED (__user_heap_base)?__user_heap_base:.)
                 0x0000000010002000                PROVIDE (_vStackTop, DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc8 - 0x0))
                 0xffffffffefffdb1d                PROVIDE (__valid_user_code_checksum, (0x0 - (((_vStackTop + (ResetISR + 0x1)) + (DEFINED (NMI_Handler)?NMI_Handler:M0_NMI_Handler + 0x1)) + (DEFINED (HardFault_Handler)?HardFault_Handler:M0_HardFault_Handler + 0x1))))
 OUTPUT(PWM_Sample.axf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x3f2c
- .debug_info    0x0000000000000000      0x795 ./src/PWM_Sample.o
- .debug_info    0x0000000000000795      0x203 ./src/cr_startup_lpc11xx.o
- .debug_info    0x0000000000000998       0x3f ./src/crp.o
- .debug_info    0x00000000000009d7       0xb8 ./src/sysinit.o
- .debug_info    0x0000000000000a8f      0x825 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
- .debug_info    0x00000000000012b4      0xa36 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
- .debug_info    0x0000000000001cea       0xc2 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
- .debug_info    0x0000000000001dac      0x893 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
- .debug_info    0x000000000000263f      0xb59 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
- .debug_info    0x0000000000003198      0x593 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
- .debug_info    0x000000000000372b      0x801 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+.debug_info     0x0000000000000000     0x432b
+ .debug_info    0x0000000000000000      0x7df ./src/PWM_Sample.o
+ .debug_info    0x00000000000007df      0x203 ./src/cr_startup_lpc11xx.o
+ .debug_info    0x00000000000009e2       0x3f ./src/crp.o
+ .debug_info    0x0000000000000a21      0x3b5 ./src/steering_driver.o
+ .debug_info    0x0000000000000dd6       0xb8 ./src/sysinit.o
+ .debug_info    0x0000000000000e8e      0x825 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+ .debug_info    0x00000000000016b3      0xa36 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+ .debug_info    0x00000000000020e9       0xc2 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+ .debug_info    0x00000000000021ab      0x893 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+ .debug_info    0x0000000000002a3e      0xb59 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+ .debug_info    0x0000000000003597      0x593 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+ .debug_info    0x0000000000003b2a      0x801 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
 
-.debug_abbrev   0x0000000000000000      0xe0a
- .debug_abbrev  0x0000000000000000      0x20a ./src/PWM_Sample.o
- .debug_abbrev  0x000000000000020a       0xe6 ./src/cr_startup_lpc11xx.o
- .debug_abbrev  0x00000000000002f0       0x36 ./src/crp.o
- .debug_abbrev  0x0000000000000326       0x6a ./src/sysinit.o
- .debug_abbrev  0x0000000000000390      0x24c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
- .debug_abbrev  0x00000000000005dc      0x1e7 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
- .debug_abbrev  0x00000000000007c3       0x7b /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
- .debug_abbrev  0x000000000000083e      0x1c0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
- .debug_abbrev  0x00000000000009fe      0x1a9 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
- .debug_abbrev  0x0000000000000ba7       0xce /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
- .debug_abbrev  0x0000000000000c75      0x195 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+.debug_abbrev   0x0000000000000000      0xf7b
+ .debug_abbrev  0x0000000000000000      0x234 ./src/PWM_Sample.o
+ .debug_abbrev  0x0000000000000234       0xe6 ./src/cr_startup_lpc11xx.o
+ .debug_abbrev  0x000000000000031a       0x36 ./src/crp.o
+ .debug_abbrev  0x0000000000000350      0x147 ./src/steering_driver.o
+ .debug_abbrev  0x0000000000000497       0x6a ./src/sysinit.o
+ .debug_abbrev  0x0000000000000501      0x24c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+ .debug_abbrev  0x000000000000074d      0x1e7 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+ .debug_abbrev  0x0000000000000934       0x7b /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+ .debug_abbrev  0x00000000000009af      0x1c0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+ .debug_abbrev  0x0000000000000b6f      0x1a9 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+ .debug_abbrev  0x0000000000000d18       0xce /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+ .debug_abbrev  0x0000000000000de6      0x195 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
 
-.debug_aranges  0x0000000000000000      0x3f0
+.debug_aranges  0x0000000000000000      0x430
  .debug_aranges
                 0x0000000000000000       0x68 ./src/PWM_Sample.o
  .debug_aranges
@@ -1396,35 +1439,38 @@ OUTPUT(PWM_Sample.axf elf32-littlearm)
  .debug_aranges
                 0x00000000000000c8       0x18 ./src/crp.o
  .debug_aranges
-                0x00000000000000e0       0x20 ./src/sysinit.o
+                0x00000000000000e0       0x40 ./src/steering_driver.o
  .debug_aranges
-                0x0000000000000100       0xb0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+                0x0000000000000120       0x20 ./src/sysinit.o
  .debug_aranges
-                0x00000000000001b0       0x60 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x0000000000000140       0xb0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
  .debug_aranges
-                0x0000000000000210       0x20 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+                0x00000000000001f0       0x60 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .debug_aranges
-                0x0000000000000230       0x88 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000250       0x20 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
  .debug_aranges
-                0x00000000000002b8       0xb0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+                0x0000000000000270       0x88 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
  .debug_aranges
-                0x0000000000000368       0x38 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+                0x00000000000002f8       0xb0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
  .debug_aranges
-                0x00000000000003a0       0x50 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+                0x00000000000003a8       0x38 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+ .debug_aranges
+                0x00000000000003e0       0x50 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
 
-.debug_ranges   0x0000000000000000      0x338
+.debug_ranges   0x0000000000000000      0x368
  .debug_ranges  0x0000000000000000       0x58 ./src/PWM_Sample.o
  .debug_ranges  0x0000000000000058       0x50 ./src/cr_startup_lpc11xx.o
- .debug_ranges  0x00000000000000a8       0x10 ./src/sysinit.o
- .debug_ranges  0x00000000000000b8       0xa0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
- .debug_ranges  0x0000000000000158       0x50 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
- .debug_ranges  0x00000000000001a8       0x10 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
- .debug_ranges  0x00000000000001b8       0x78 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
- .debug_ranges  0x0000000000000230       0xa0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
- .debug_ranges  0x00000000000002d0       0x28 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
- .debug_ranges  0x00000000000002f8       0x40 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+ .debug_ranges  0x00000000000000a8       0x30 ./src/steering_driver.o
+ .debug_ranges  0x00000000000000d8       0x10 ./src/sysinit.o
+ .debug_ranges  0x00000000000000e8       0xa0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+ .debug_ranges  0x0000000000000188       0x50 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+ .debug_ranges  0x00000000000001d8       0x10 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+ .debug_ranges  0x00000000000001e8       0x78 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+ .debug_ranges  0x0000000000000260       0xa0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+ .debug_ranges  0x0000000000000300       0x28 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+ .debug_ranges  0x0000000000000328       0x40 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
 
-.debug_macro    0x0000000000000000     0x33e4
+.debug_macro    0x0000000000000000     0x36ac
  .debug_macro   0x0000000000000000      0x17d ./src/PWM_Sample.o
  .debug_macro   0x000000000000017d      0x83e ./src/PWM_Sample.o
  .debug_macro   0x00000000000009bb       0x10 ./src/PWM_Sample.o
@@ -1456,52 +1502,58 @@ OUTPUT(PWM_Sample.axf elf32-littlearm)
  .debug_macro   0x000000000000200b       0x1d ./src/cr_startup_lpc11xx.o
  .debug_macro   0x0000000000002028       0x1a ./src/crp.o
  .debug_macro   0x0000000000002042       0x34 ./src/crp.o
- .debug_macro   0x0000000000002076      0x17d ./src/sysinit.o
- .debug_macro   0x00000000000021f3      0x18a /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
- .debug_macro   0x000000000000237d      0x838 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
- .debug_macro   0x0000000000002bb5       0x12 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
- .debug_macro   0x0000000000002bc7      0x18b /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
- .debug_macro   0x0000000000002d52      0x148 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
- .debug_macro   0x0000000000002e9a      0x148 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
- .debug_macro   0x0000000000002fe2      0x148 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
- .debug_macro   0x000000000000312a      0x172 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
- .debug_macro   0x000000000000329c      0x148 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+ .debug_macro   0x0000000000002076      0x22c ./src/steering_driver.o
+ .debug_macro   0x00000000000022a2       0x28 ./src/steering_driver.o
+ .debug_macro   0x00000000000022ca       0x74 ./src/steering_driver.o
+ .debug_macro   0x000000000000233e      0x17d ./src/sysinit.o
+ .debug_macro   0x00000000000024bb      0x18a /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+ .debug_macro   0x0000000000002645      0x838 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+ .debug_macro   0x0000000000002e7d       0x12 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+ .debug_macro   0x0000000000002e8f      0x18b /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+ .debug_macro   0x000000000000301a      0x148 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+ .debug_macro   0x0000000000003162      0x148 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+ .debug_macro   0x00000000000032aa      0x148 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+ .debug_macro   0x00000000000033f2      0x172 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+ .debug_macro   0x0000000000003564      0x148 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
 
-.debug_line     0x0000000000000000     0x2331
- .debug_line    0x0000000000000000      0x425 ./src/PWM_Sample.o
- .debug_line    0x0000000000000425       0xba ./src/cr_startup_lpc11xx.o
- .debug_line    0x00000000000004df       0x7f ./src/crp.o
- .debug_line    0x000000000000055e      0x347 ./src/sysinit.o
- .debug_line    0x00000000000008a5      0x4cf /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
- .debug_line    0x0000000000000d74      0x432 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
- .debug_line    0x00000000000011a6      0x2cf /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
- .debug_line    0x0000000000001475      0x3f9 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
- .debug_line    0x000000000000186e      0x45a /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
- .debug_line    0x0000000000001cc8      0x30c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
- .debug_line    0x0000000000001fd4      0x35d /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+.debug_line     0x0000000000000000     0x2729
+ .debug_line    0x0000000000000000      0x441 ./src/PWM_Sample.o
+ .debug_line    0x0000000000000441       0xba ./src/cr_startup_lpc11xx.o
+ .debug_line    0x00000000000004fb       0x7f ./src/crp.o
+ .debug_line    0x000000000000057a      0x3dc ./src/steering_driver.o
+ .debug_line    0x0000000000000956      0x347 ./src/sysinit.o
+ .debug_line    0x0000000000000c9d      0x4cf /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+ .debug_line    0x000000000000116c      0x432 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+ .debug_line    0x000000000000159e      0x2cf /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+ .debug_line    0x000000000000186d      0x3f9 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+ .debug_line    0x0000000000001c66      0x45a /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+ .debug_line    0x00000000000020c0      0x30c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+ .debug_line    0x00000000000023cc      0x35d /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
 
-.debug_str      0x0000000000000000     0x9ae5
- .debug_str     0x0000000000000000     0x84e3 ./src/PWM_Sample.o
-                                       0x8606 (size before relaxing)
- .debug_str     0x00000000000084e3      0x168 ./src/cr_startup_lpc11xx.o
+.debug_str      0x0000000000000000     0x9f90
+ .debug_str     0x0000000000000000     0x84ea ./src/PWM_Sample.o
+                                       0x8613 (size before relaxing)
+ .debug_str     0x00000000000084ea      0x168 ./src/cr_startup_lpc11xx.o
                                        0x2518 (size before relaxing)
- .debug_str     0x000000000000864b       0xe9 ./src/crp.o
+ .debug_str     0x0000000000008652       0xe9 ./src/crp.o
                                        0x247a (size before relaxing)
- .debug_str     0x0000000000008734       0x11 ./src/sysinit.o
+ .debug_str     0x000000000000873b      0x4a4 ./src/steering_driver.o
+                                       0x84b7 (size before relaxing)
+ .debug_str     0x0000000000008bdf       0x11 ./src/sysinit.o
                                        0x800e (size before relaxing)
- .debug_str     0x0000000000008745      0x329 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+ .debug_str     0x0000000000008bf0      0x329 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
                                        0x84b0 (size before relaxing)
- .debug_str     0x0000000000008a6e      0x6b9 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+ .debug_str     0x0000000000008f19      0x6b9 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
                                        0x8949 (size before relaxing)
- .debug_str     0x0000000000009127       0x74 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+ .debug_str     0x00000000000095d2       0x74 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
                                        0x7d48 (size before relaxing)
- .debug_str     0x000000000000919b      0x447 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+ .debug_str     0x0000000000009646      0x447 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
                                        0x850c (size before relaxing)
- .debug_str     0x00000000000095e2      0x242 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+ .debug_str     0x0000000000009a8d      0x242 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
                                        0x83ea (size before relaxing)
- .debug_str     0x0000000000009824      0x19f /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+ .debug_str     0x0000000000009ccf      0x19f /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
                                        0x8156 (size before relaxing)
- .debug_str     0x00000000000099c3      0x122 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+ .debug_str     0x0000000000009e6e      0x122 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
                                        0x82dd (size before relaxing)
 
 .comment        0x0000000000000000       0xdc
@@ -1509,6 +1561,7 @@ OUTPUT(PWM_Sample.axf elf32-littlearm)
                                          0x6f (size before relaxing)
  .comment       0x000000000000006e       0x6f ./src/cr_startup_lpc11xx.o
  .comment       0x000000000000006e       0x6f ./src/crp.o
+ .comment       0x000000000000006e       0x6f ./src/steering_driver.o
  .comment       0x000000000000006e       0x6f ./src/sysinit.o
  .comment       0x000000000000006e       0x6f /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
  .comment       0x000000000000006e       0x6f /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
@@ -1519,6 +1572,7 @@ OUTPUT(PWM_Sample.axf elf32-littlearm)
  .comment       0x000000000000006e       0x6f /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
  .comment       0x000000000000006e       0x6e /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(__weak__main.o)
                                          0x6f (size before relaxing)
+ .comment       0x00000000000000dc       0x6f /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
 
 .ARM.attributes
                 0x0000000000000000       0x2f
@@ -1529,36 +1583,41 @@ OUTPUT(PWM_Sample.axf elf32-littlearm)
  .ARM.attributes
                 0x0000000000000062       0x31 ./src/crp.o
  .ARM.attributes
-                0x0000000000000093       0x31 ./src/sysinit.o
+                0x0000000000000093       0x31 ./src/steering_driver.o
  .ARM.attributes
-                0x00000000000000c4       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+                0x00000000000000c4       0x31 ./src/sysinit.o
  .ARM.attributes
-                0x00000000000000f5       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+                0x00000000000000f5       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
  .ARM.attributes
-                0x0000000000000126       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+                0x0000000000000126       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
  .ARM.attributes
-                0x0000000000000157       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+                0x0000000000000157       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
  .ARM.attributes
-                0x0000000000000188       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+                0x0000000000000188       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
  .ARM.attributes
-                0x00000000000001b9       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+                0x00000000000001b9       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
  .ARM.attributes
-                0x00000000000001ea       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+                0x00000000000001ea       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
  .ARM.attributes
-                0x000000000000021b       0x31 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(__weak__main.o)
+                0x000000000000021b       0x31 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
  .ARM.attributes
-                0x000000000000024c       0x21 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/libcr_eabihelpers.a(division_32.o)
+                0x000000000000024c       0x31 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(__weak__main.o)
  .ARM.attributes
-                0x000000000000026d       0x21 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/libcr_eabihelpers.a(division_idiv0.o)
+                0x000000000000027d       0x31 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libcr_c.a(stdlib.o)
+ .ARM.attributes
+                0x00000000000002ae       0x21 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/libcr_eabihelpers.a(division_32.o)
+ .ARM.attributes
+                0x00000000000002cf       0x21 /Applications/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/libcr_eabihelpers.a(division_idiv0.o)
 
-.debug_frame    0x0000000000000000      0xbf0
- .debug_frame   0x0000000000000000      0x148 ./src/PWM_Sample.o
- .debug_frame   0x0000000000000148      0x118 ./src/cr_startup_lpc11xx.o
- .debug_frame   0x0000000000000260       0x2c ./src/sysinit.o
- .debug_frame   0x000000000000028c      0x260 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
- .debug_frame   0x00000000000004ec      0x128 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
- .debug_frame   0x0000000000000614       0x2c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
- .debug_frame   0x0000000000000640      0x1c0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
- .debug_frame   0x0000000000000800      0x270 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
- .debug_frame   0x0000000000000a70       0x90 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
- .debug_frame   0x0000000000000b00       0xf0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)
+.debug_frame    0x0000000000000000      0xca4
+ .debug_frame   0x0000000000000000      0x14c ./src/PWM_Sample.o
+ .debug_frame   0x000000000000014c      0x118 ./src/cr_startup_lpc11xx.o
+ .debug_frame   0x0000000000000264       0xb0 ./src/steering_driver.o
+ .debug_frame   0x0000000000000314       0x2c ./src/sysinit.o
+ .debug_frame   0x0000000000000340      0x260 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board.o)
+ .debug_frame   0x00000000000005a0      0x128 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug/libnxp_lpcxpresso_11c24_board_lib.a(board_sysinit.o)
+ .debug_frame   0x00000000000006c8       0x2c /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(chip_11xx.o)
+ .debug_frame   0x00000000000006f4      0x1c0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(clock_11xx.o)
+ .debug_frame   0x00000000000008b4      0x270 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(gpio_11xx_2.o)
+ .debug_frame   0x0000000000000b24       0x90 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(sysctl_11xx.o)
+ .debug_frame   0x0000000000000bb4       0xf0 /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug/liblpc_chip_11cxx_lib.a(timer_11xx.o)

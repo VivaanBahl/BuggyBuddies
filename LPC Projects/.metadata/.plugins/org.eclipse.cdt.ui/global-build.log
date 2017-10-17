@@ -1,31 +1,67 @@
-21:01:11 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+16:05:03 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
 make -r all 
 make: Nothing to be done for `all'.
-21:01:12 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+16:05:04 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
 make -r all 
 make: Nothing to be done for `all'.
-21:01:12 **** Incremental Build of configuration Debug for project PWM_Sample ****
+16:05:05 **** Incremental Build of configuration Debug for project PWM_Sample ****
 make -r all 
-Building file: ../src/steering_driver.c
+Building file: ../src/PWM_Sample.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/steering_driver.d" -MT"src/steering_driver.o" -MT"src/steering_driver.d" -o "src/steering_driver.o" "../src/steering_driver.c"
-../src/steering_driver.c: In function 'steer_set_velocity':
-../src/steering_driver.c:81:5: warning: implicit declaration of function 'servo_set_us' [-Wimplicit-function-declaration]
-     servo_set_us(output_int_us + STEERING_PWM_CENTER_US);
-     ^
-Finished building: ../src/steering_driver.c
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/PWM_Sample.d" -MT"src/PWM_Sample.o" -MT"src/PWM_Sample.d" -o "src/PWM_Sample.o" "../src/PWM_Sample.c"
+In file included from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/chip.h:232:0,
+                 from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc/board.h:35,
+                 from ../src/PWM_Sample.c:11:
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+../src/PWM_Sample.c: In function 'main':
+../src/PWM_Sample.c:71:4: warning: implicit declaration of function 'steering_set' [-Wimplicit-function-declaration]
+    steering_set(i);
+    ^
+Finished building: ../src/PWM_Sample.c
  
 Building target: PWM_Sample.axf
 Invoking: MCU Linker
 arm-none-eabi-gcc -nostdlib -L"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug" -L"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug" -Xlinker -Map="PWM_Sample.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0 -mthumb -T "PWM_Sample_Debug.ld" -o "PWM_Sample.axf"  ./src/PWM_Sample.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/steering_driver.o ./src/sysinit.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
 Memory region         Used Size  Region Size  %age Used
-        MFlash32:        3520 B        32 KB     10.74%
-         RamLoc8:           8 B         8 KB      0.10%
+        MFlash32:        4124 B        32 KB     12.59%
+         RamLoc8:          16 B         8 KB      0.20%
 Finished building target: PWM_Sample.axf
  
 make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "PWM_Sample.axf"; # arm-none-eabi-objcopy -v -O binary "PWM_Sample.axf" "PWM_Sample.bin" ; # checksum -p LPC11C24_301 -d "PWM_Sample.bin";
    text	   data	    bss	    dec	    hex	filename
-   3520	      0	      8	   3528	    dc8	PWM_Sample.axf
+   4124	      0	     16	   4140	   102c	PWM_Sample.axf
+ 
+16:05:11 **** Incremental Build of configuration Debug for project PWM_Sample ****
+make -r all 
+make: Nothing to be done for `all'.
+16:06:28 **** Incremental Build of configuration Debug for project PWM_Sample ****
+make -r all 
+Building file: ../src/steering_driver.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -D__LPC11XX__ -D__REDLIB__ -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc" -I"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/steering_driver.d" -MT"src/steering_driver.o" -MT"src/steering_driver.d" -o "src/steering_driver.o" "../src/steering_driver.c"
+In file included from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/chip.h:232:0,
+                 from /Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/inc/board.h:35,
+                 from ../src/steering_driver.c:8:
+/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+Finished building: ../src/steering_driver.c
+ 
+Building target: PWM_Sample.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/nxp_lpcxpresso_11c24_board_lib/Debug" -L"/Users/vivaanbahl/Buggy/BuggyBuddies/LPC Projects/lpc_chip_11cxx_lib/Debug" -Xlinker -Map="PWM_Sample.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0 -mthumb -T "PWM_Sample_Debug.ld" -o "PWM_Sample.axf"  ./src/PWM_Sample.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/steering_driver.o ./src/sysinit.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:        4080 B        32 KB     12.45%
+         RamLoc8:          16 B         8 KB      0.20%
+Finished building target: PWM_Sample.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "PWM_Sample.axf"; # arm-none-eabi-objcopy -v -O binary "PWM_Sample.axf" "PWM_Sample.bin" ; # checksum -p LPC11C24_301 -d "PWM_Sample.bin";
+   text	   data	    bss	    dec	    hex	filename
+   4080	      0	     16	   4096	   1000	PWM_Sample.axf
  

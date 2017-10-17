@@ -5,6 +5,7 @@
  *      Author: vivaanbahl
  */
 #include <stdlib.h>
+#include "board.h"
 
 #define PWM_OFFSET_STORED_ANGLE 0
 #define PWM_SCALE_STORED_ANGLE 1000 // in hundredths of a degree for precision
@@ -28,6 +29,11 @@
 #define STEERING_ERROR_THRESHOLD 5
 #define DEGREE_HUNDREDTHS_PER_REV 36000
 
+#define SERVO_REFRESH_US 5000L
+#define SERVO_MID_US 1500
+#define SERVO_MIN_US 544
+#define SERVO_MAX_US 2400
+
 // TODO temp
 #define TEMP_ENC_TICKS 0
 
@@ -35,7 +41,7 @@
 #define min(X,Y) ((X < Y) ? (X) : (Y))
 #define max(X,Y) ((X > Y) ? (X) : (Y))
 
-inline long map_signal(long x,
+long map_signal(long x,
                        long in_offset,
                        long in_scale,
                        long out_offset,
@@ -43,10 +49,23 @@ inline long map_signal(long x,
     return ((x - in_offset) * out_scale / in_scale) + out_offset;
 }
 
-inline long clamp(long input,
+long clamp(long input,
                   long upper,
                   long lower) {
     return (max(min(input, upper), lower));
+}
+
+void servo_set_us(uint16_t value)
+{
+	// check limits
+	if(value < SERVO_MIN_US) {
+		value = SERVO_MIN_US;
+	}
+	if(value > SERVO_MAX_US) {
+		value = SERVO_MAX_US;
+	}
+
+	LPC_TIMER16_0->MR[0] = SERVO_REFRESH_US - value;
 }
 
 /** @brief sets the velocity of the steering motor to target_velocity
