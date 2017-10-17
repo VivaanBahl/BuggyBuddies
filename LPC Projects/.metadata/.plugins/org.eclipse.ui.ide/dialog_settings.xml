@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="ExternalProjectImportWizard">
-	</section>
-	<section name="WORKBENCH_SETTINGS">
-		<list key="ENABLED_TRANSFERS">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/kevinlee/BuggyBuddies/LPC Projects"/>
+			<item value="/Users/kevinlee/Documents/LPCXpresso_8.2.2/workspace"/>
 		</list>
-	</section>
-	<section name="ChooseWorkspaceDialogSettings">
-		<item value="412" key="DIALOG_X_ORIGIN"/>
-		<item value="236" key="DIALOG_Y_ORIGIN"/>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
 	</section>
 </section>

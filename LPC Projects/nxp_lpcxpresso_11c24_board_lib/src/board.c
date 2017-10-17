@@ -110,7 +110,7 @@ static void Board_LED_Init(void)
 void Board_LED_Set(uint8_t LEDNumber, bool On)
 {
 	if(LEDNumber == 0) {
-		Chip_GPIO_SetPinState(LPC_GPIO, 0, 7, On);
+		Chip_GPIO_SetPinState(LPC_GPIO, 0, 7, !On);
 	}
 }
 
