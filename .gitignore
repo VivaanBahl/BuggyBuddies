@@ -22,6 +22,12 @@ msg/_*.py
 *.dox
 *.wikidoc
 
+# eclipse stuff
+.metadata/
+.settings/
+*.launch
+Debug/
+
 # qcreator stuff
 CMakeLists.txt.user
 
