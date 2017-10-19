@@ -17,15 +17,21 @@
 
 #define LPC_SSP           LPC_SSP0
 
+static Chip_SSP_DATA_SETUP_T xf_setup;
 
 /*-----------------------------------------------------------------------*/
 /* Get Drive Status                                                      */
 /*-----------------------------------------------------------------------*/
 
+static uint8_t status_tx_buf[64];
+static uint8_t status_rx_buf[64];
 DSTATUS disk_status (
 	BYTE pdrv		/* Physical drive nmuber to identify the drive */
 )
 {
+	// according to http://www.chlazza.net/sdcardinfo.html
+	// sending over the status register is done by CMD13
+
 	DSTATUS stat;
 	int result;
 
@@ -41,7 +47,24 @@ DSTATUS disk_status (
 //		result = MMC_disk_status();
 
 		// translate the reslut code here
-		Board_UARTPutSTR("diskstatus\n");
+		for (int i = 0; i < 64; i++)
+		{
+			status_tx_buf[i] = 0xFF;
+		}
+
+		status_tx_buf[0] = 0x40 | 13;
+		status_tx_buf[1] = 0;
+		status_tx_buf[2] = 0;
+		status_tx_buf[3] = 0;
+		status_tx_buf[4] = 0;
+		status_tx_buf[5] = 0x1;
+
+		xf_setup.length = 64;
+		xf_setup.tx_data = status_tx_buf;
+		xf_setup.rx_data = status_rx_buf;
+		xf_setup.rx_cnt = xf_setup.tx_cnt = 0;
+
+		Chip_SSP_RWFrames_Blocking(LPC_SSP, &xf_setup);
 
 		return 0;
 
@@ -63,7 +86,6 @@ DSTATUS disk_status (
 
 static uint8_t init_tx_buf[0x100];
 static uint8_t init_rx_buf[0x100];
-static Chip_SSP_DATA_SETUP_T xf_setup;
 DSTATUS disk_initialize (
 	BYTE pdrv				/* Physical drive nmuber to identify the drive */
 )
@@ -101,6 +123,10 @@ DSTATUS disk_initialize (
 		xf_setup.rx_cnt = xf_setup.tx_cnt = 0;
 
 		Chip_SSP_RWFrames_Blocking(LPC_SSP, &xf_setup);
+
+		// http://elm-chan.org/docs/mmc/im/sdinit.png
+		// flowchart for SD init
+		// we just choose to send cmd1 3 times because vivaan is dumb lol
 
 		init_tx_buf[0] = cmd_header;
 		init_tx_buf[1] = 0;
@@ -170,6 +196,9 @@ DSTATUS disk_initialize (
 		Chip_SSP_RWFrames_Blocking(LPC_SSP, &xf_setup);
 //		Chip_SSP_WriteFrames_Blocking(LPC_SSP, tx_buf, 0x100);
 //		Chip_SSP_ReadFrames_Blocking(LPC_SSP, rx_buf, 1);
+
+		Chip_GPIO_SetPinOutHigh(LPC_GPIO, 0, 2);
+		Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO0_2, (IOCON_FUNC1 | IOCON_MODE_INACT));	/* SSEL0 */
 
 		stat = RES_OK;
 		// translate the reslut code here

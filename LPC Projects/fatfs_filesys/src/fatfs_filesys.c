@@ -72,7 +72,7 @@ int main(void) {
 	f_mount(fs, "1:", 0);
 
 	FIL *fp = malloc(sizeof(FIL));
-	if(f_open(fp, "1:log.txt", FA_READ | FA_WRITE) == FR_OK) {
+	if(f_open(fp, "1:log1.txt", FA_READ | FA_WRITE | FA_OPEN_ALWAYS) == FR_OK) {
 		char buf[10];
 		int j;
 		if (f_read(fp, buf, 16, &j) == FR_OK) {
