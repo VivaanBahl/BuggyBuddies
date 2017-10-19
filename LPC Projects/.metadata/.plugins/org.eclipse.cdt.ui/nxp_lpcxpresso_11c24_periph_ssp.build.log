@@ -1,6 +1,0 @@
-15:14:50 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_periph_ssp ****
-make -r all 
-make: Nothing to be done for `all'.
-
-15:14:50 Build Finished (took 75ms)
-
