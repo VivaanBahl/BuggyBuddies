@@ -26,8 +26,12 @@
 volatile uint8_t last_state;
 volatile long ticks;
 
+volatile int desired_steering_angle = 0;
+volatile int direction = 1; // +1 forwards, -1 backwards
+
 
 void ENCODER_IRQ_HANDLER(void) {
+
 	Chip_GPIO_ClearInts(LPC_GPIO, PIN_A_PORT, (1 << PIN_A));
 	Chip_GPIO_ClearInts(LPC_GPIO, PIN_B_PORT, (1 << PIN_B));
 
@@ -36,7 +40,6 @@ void ENCODER_IRQ_HANDLER(void) {
 	bool pin_b_new = Chip_GPIO_GetPinState(LPC_GPIO, PIN_B_PORT, PIN_B);
 	uint8_t new_state = ((last_state << 2) | ((uint8_t)pin_a_new << 1) | ((uint8_t)pin_b_new)) & 0x0F;
 
-	Board_UARTPutSTR("in interrupt\n");
 	switch (new_state) {
 /*
  *      old A B new A B
@@ -65,7 +68,16 @@ void ENCODER_IRQ_HANDLER(void) {
 	case 11:
 	case 13:
 		ticks++;
-		Board_UARTPutSTR("forward\n");
+		break;
+	case 3:
+	case 12:
+		Board_UARTPutSTR("edge backwards\n");
+		ticks -= 2;
+		break;
+	case 9:
+	case 6:
+		Board_UARTPutSTR("edge forward\n");
+		ticks += 2;
 		break;
 
 	// reverse
@@ -74,9 +86,10 @@ void ENCODER_IRQ_HANDLER(void) {
     case 8:
     case 14:
         ticks--;
-        Board_UARTPutSTR("reverse\n");
         break;
 	}
+
+
 
 	last_state = new_state;
 	return;
@@ -87,20 +100,22 @@ void ENCODER_IRQ_HANDLER(void) {
 // */
 void SysTick_Handler(void)
 {
-	Board_LED_Set(0, false);
-}
+	desired_steering_angle += (1000 * direction);
 
-/**
- * @brief	Handle interrupt from 32-bit timer
- * @return	Nothing
- */
-void TIMER16_0_IRQHandler(void)
-{
-	if (Chip_TIMER_MatchPending(LPC_TIMER16_0, 1)) {
-		Chip_TIMER_ClearMatch(LPC_TIMER16_0, 1);
-		Board_LED_Toggle(0);
+	if (desired_steering_angle >= 1500 || desired_steering_angle <= -1500)
+	{
+		direction = -1*direction;
+		desired_steering_angle += (1000 * direction);
 	}
 }
+
+void TIMER16_1_IRQHandler(void)
+{
+	if (Chip_TIMER_MatchPending(LPC_TIMER16_1, 0)) {
+		Chip_TIMER_ClearMatch(LPC_TIMER16_1, 0);
+	}
+}
+
 
 /**
  * @brief	main routine for blinky example
@@ -113,7 +128,7 @@ int main(void)
 	Board_Init();
 
 	/* Enable and setup SysTick Timer at a periodic rate */
-	SysTick_Config(SystemCoreClock);
+	SysTick_Config(SystemCoreClock / 3);
 
 	/* Enable timer 1 clock */
 	Chip_TIMER_Init(LPC_TIMER16_0);
@@ -129,6 +144,16 @@ int main(void)
 	LPC_TIMER16_0->PWMC = 0x1;
 	Chip_TIMER_Enable(LPC_TIMER16_0);
 
+	Chip_TIMER_Init(LPC_TIMER16_1);
+	Chip_TIMER_Reset(LPC_TIMER16_1);
+	Chip_TIMER_MatchEnableInt(LPC_TIMER16_1, 0);
+	Chip_TIMER_SetMatch(LPC_TIMER16_1, 0, 10000);
+	Chip_TIMER_ResetOnMatchEnable(LPC_TIMER16_1, 0);
+	LPC_TIMER16_1->PR = 48;
+	Chip_TIMER_Enable(LPC_TIMER16_1);
+	NVIC_ClearPendingIRQ(TIMER_16_1_IRQn);
+	NVIC_EnableIRQ(TIMER_16_1_IRQn);
+
     // Uart crap
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_6, (IOCON_FUNC1 | IOCON_MODE_INACT));/* RXD */
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_7, (IOCON_FUNC1 | IOCON_MODE_INACT));/* TXD */
@@ -138,7 +163,6 @@ int main(void)
 	Chip_UART_SetupFIFOS(LPC_USART, (UART_FCR_FIFO_EN | UART_FCR_TRG_LEV2));
 	Chip_UART_TXEnable(LPC_USART);
 
-	Board_UARTPutSTR("asdfadsfadfasdf\n");
 
     /* Configure GPIO pins as input pins */
     Chip_GPIO_SetPinDIRInput(LPC_GPIO, PIN_A_PORT, PIN_A);
@@ -178,16 +202,11 @@ int main(void)
 
 
 	/* LEDs toggle in interrupt handlers */
+	while(1)
+	{
+		Board_LED_Toggle(0);
 
-	while (1) {
-		for (int i = 0; i < 1500; i++)
-		{
-			steering_set(i);
-		}
-		for (int i = 0; i > -1500; i--)
-		{
-			steering_set(i);
-		}
+		steering_set(desired_steering_angle);
 		__WFI();
 	}
 
