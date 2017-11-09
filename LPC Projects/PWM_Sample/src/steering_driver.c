@@ -14,20 +14,20 @@
 #define STEERING_LIMIT_RIGHT 1500
 #define STEERING_LOOP_TIME_US 10000L
 #define MICROSECONDS_PER_SECOND 1000000L
-#define STEERING_KP_NUMERATOR 8L
+#define STEERING_KP_NUMERATOR 1L
 #define STEERING_KP_DEMONENATOR 2L
-#define STEERING_KD_NUMERATOR 150L
+#define STEERING_KD_NUMERATOR 0L
 #define STEERING_KD_DENOMENATOR 100L
 //limited by 16-bit signed? 400 degress per second - 50% cpu usage from encoder interrupts
 //#define STEERING_MAX_SPEED 32000L
-#define STEERING_MAX_SPEED 8000L
-#define STEERING_KV_NUMERATOR 3L
-#define STEERING_KV_DENOMENATOR 1000L
+#define STEERING_MAX_SPEED 1000L
+#define STEERING_KV_NUMERATOR 1L
+#define STEERING_KV_DENOMENATOR 10L
 #define STEERING_PWM_CENTER_US 1500L //The PWM value that gives no movement.
 #define STEERING_MAX_PWM 150 // max PWM value to add on top of the center_us
 #define MOTOR_ENCODER_TICKS_PER_REV 36864 // 4096 * 9 = 12-bit * 1:9 gearbox
 #define MOTOR_FEED_FORWARD 200
-#define STEERING_ERROR_THRESHOLD 5
+#define STEERING_ERROR_THRESHOLD 50
 #define DEGREE_HUNDREDTHS_PER_REV 36000
 
 #define SERVO_REFRESH_US 5000L
@@ -40,11 +40,11 @@ extern long ticks;
 #define min(X,Y) ((X < Y) ? (X) : (Y))
 #define max(X,Y) ((X > Y) ? (X) : (Y))
 
-long map_signal(long x,
-                       long in_offset,
-                       long in_scale,
-                       long out_offset,
-                       long out_scale) {
+int map_signal(int x,
+                       int in_offset,
+                       int in_scale,
+                       int out_offset,
+                       int out_scale) {
     return ((x - in_offset) * out_scale / in_scale) + out_offset;
 }
 
@@ -114,17 +114,17 @@ void steering_set(int angle)
     angle = clamp(angle, STEERING_LIMIT_RIGHT, STEERING_LIMIT_LEFT);
 
     //For the DC motor
-    long actual = map_signal(ticks,
+    int actual = map_signal(ticks,
                              0,
                              MOTOR_ENCODER_TICKS_PER_REV,
                              0,
                              DEGREE_HUNDREDTHS_PER_REV);
 
-    long error = angle - actual;
+    int error = angle - actual;
 
-    char buf[100];
-    sprintf(buf, "ac=%ld er=%ld\n", actual, error);
-    Board_UARTPutSTR(buf);
+	char buf[16];
+	sprintf(buf, "%d %d %d\n", angle, actual, error);
+	Board_UARTPutSTR(buf);
 
     long output_vel = 0;
     if(labs(error) > STEERING_ERROR_THRESHOLD) { //0.1 degree deadband
