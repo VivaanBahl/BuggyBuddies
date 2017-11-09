@@ -214,7 +214,8 @@ int main(void)
 	Board_LED_Set(0, true);
 
 	/* Setup UART for 19.2K8N1 */
-	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_6,(IOCON_FUNC1 | IOCON_MODE_INACT));
+	// The RX pin is pullup because UART by default (when plugged into usb) pulls up to 5V
+	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_6,(IOCON_FUNC1 | IOCON_MODE_PULLUP));
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_7,(IOCON_FUNC1 | IOCON_MODE_INACT));
 	Chip_UART_Init(LPC_USART);
 	Chip_UART_SetBaud(LPC_USART, BAUDRATE);
