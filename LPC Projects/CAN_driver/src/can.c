@@ -33,7 +33,9 @@ void baudrateCalculate(uint32_t baud_rate, uint32_t *can_api_timing_cfg)
 	}
 }
 
-void CAN_init(uint32_t baud_rate, CCAN_MSG_OBJ_T* msg_object)
+void CAN_init(uint32_t baud_rate, CCAN_MSG_OBJ_T* msg_object,
+		void (*CAN_rx)(uint8_t msg_obj_num), void (*CAN_tx)(uint8_t msg_obj_num),
+		void (*CAN_error)(uint32_t error_info))
 {
 	uint32_t CanApiClkInitTable[2];
 	/* Publish CAN Callback Functions */
@@ -56,8 +58,8 @@ void CAN_init(uint32_t baud_rate, CCAN_MSG_OBJ_T* msg_object)
 	msg_obj = msg_object;
 }
 
-/* Can only do uint32_t right now */
-void CAN_send(uint8_t msgobj, uint8_t dlc, uint32_t mode_id, uint32_t mask, uint32_t value)
+/* Can only do uint64_t right now */
+void CAN_send(uint8_t msgobj, uint8_t dlc, uint32_t mode_id, uint32_t mask, uint64_t value)
 {
 	msg_obj->msgobj  = msgobj;
 	msg_obj->mode_id = mode_id;
@@ -67,6 +69,10 @@ void CAN_send(uint8_t msgobj, uint8_t dlc, uint32_t mode_id, uint32_t mask, uint
 	msg_obj->data[1] = (value >> 8) & 0xFF;
 	msg_obj->data[2] = (value >> 16) & 0xFF;
 	msg_obj->data[3] = (value >> 24) & 0xFF;
+	msg_obj->data[3] = (value >> 32) & 0xFF;
+	msg_obj->data[3] = (value >> 40) & 0xFF;
+	msg_obj->data[3] = (value >> 48) & 0xFF;
+	msg_obj->data[3] = (value >> 56) & 0xFF;
 	LPC_CCAN_API->can_transmit(msg_obj);
 }
 
