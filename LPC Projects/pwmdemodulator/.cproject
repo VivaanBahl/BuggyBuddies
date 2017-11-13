@@ -43,6 +43,7 @@
 								</option>
 								<option id="com.crt.advproject.gcc.exe.debug.option.optimization.level.771492936" name="Optimization Level" superClass="com.crt.advproject.gcc.exe.debug.option.optimization.level" value="gnu.c.optimization.level.size" valueType="enumerated"/>
 								<option id="com.crt.advproject.gcc.lto.168227295" name="Enable Link-time optimization (-flto)" superClass="com.crt.advproject.gcc.lto" value="true" valueType="boolean"/>
+								<option id="com.crt.advproject.gcc.lto.fat.1483020979" name="Fat lto objects (-ffat-lto-objects)" superClass="com.crt.advproject.gcc.lto.fat" value="true" valueType="boolean"/>
 								<inputType id="com.crt.advproject.compiler.input.452259774" superClass="com.crt.advproject.compiler.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gas.exe.debug.1048387822" name="MCU Assembler" superClass="com.crt.advproject.gas.exe.debug">
