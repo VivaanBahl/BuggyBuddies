@@ -69,10 +69,10 @@ void CAN_send(uint8_t msgobj, uint8_t dlc, uint32_t mode_id, uint32_t mask, uint
 	msg_obj->data[1] = (value >> 8) & 0xFF;
 	msg_obj->data[2] = (value >> 16) & 0xFF;
 	msg_obj->data[3] = (value >> 24) & 0xFF;
-	msg_obj->data[3] = (value >> 32) & 0xFF;
-	msg_obj->data[3] = (value >> 40) & 0xFF;
-	msg_obj->data[3] = (value >> 48) & 0xFF;
-	msg_obj->data[3] = (value >> 56) & 0xFF;
+	msg_obj->data[4] = (value >> 32) & 0xFF;
+	msg_obj->data[5] = (value >> 40) & 0xFF;
+	msg_obj->data[6] = (value >> 48) & 0xFF;
+	msg_obj->data[7] = (value >> 56) & 0xFF;
 	LPC_CCAN_API->can_transmit(msg_obj);
 }
 
