@@ -31,6 +31,12 @@ uint16_t k_scale_stored_angle = 1500;
 uint16_t RiseTime = 0;
 uint16_t PulseWidth_US = 0;
 
+uint16_t BrakeRiseTime = 0;
+bool brake = true;
+
+uint32_t AutonRiseTime = 0;
+bool auton = false;
+
 void CAN_IRQHandler(void) {
 	LPC_CCAN_API->isr();
 }
@@ -58,9 +64,9 @@ void CAN_rx(uint8_t msg_obj_num) {
 	received |= ((uint8_t)msg_obj.data[1] << 8);
 	received |= ((uint8_t)msg_obj.data[2] << 16);
 	received |= ((uint8_t)msg_obj.data[3] << 24);
-	char buf[100];
-	sprintf(buf, "%d\n", received);
-	Board_UARTPutSTR(buf);
+	//char buf[100];
+	//sprintf(buf, "%d\n", received);
+	//Board_UARTPutSTR(buf);
 }
 
 void CAN_error(uint32_t error_info) {
@@ -101,6 +107,7 @@ long map(long x,
     return ((x - in_offset) * out_scale / in_scale) + out_offset;
 }
 
+// Steering PWD
 void TIMER16_0_IRQHandler(void)
 {
 	bool CurrentValue = Chip_GPIO_GetPinState(LPC_GPIO, 0, 2);
@@ -115,9 +122,9 @@ void TIMER16_0_IRQHandler(void)
 		{
 			if (CurrentTimer > k_min_pulse && CurrentTimer < k_max_pulse)
 			{
-				char buf[100];
-				sprintf(buf, "%d\n", CurrentTimer);
-				Board_UARTPutSTR(buf);
+				//char buf[100];
+				//sprintf(buf, "%d\n", CurrentTimer);
+				//Board_UARTPutSTR(buf);
 								/* Send a simple one time CAN message */
 				PulseWidth_US = CurrentTimer;
 			    int value = (int)map(PulseWidth_US,
@@ -145,6 +152,52 @@ void TIMER16_0_IRQHandler(void)
 	}
 }
 
+// Brake PWD
+void TIMER16_1_IRQHandler(void)
+{
+	bool CurrentValue = Chip_GPIO_GetPinState(LPC_GPIO, 1, 8);
+	uint16_t CurrentTimer = LPC_TIMER16_1->CR[0];
+	if (CurrentValue)
+	{
+		BrakeRiseTime = CurrentTimer;
+	}
+	else
+	{
+		if (BrakeRiseTime != 0)
+		{
+			brake = CurrentTimer > 1750 ? true : false;
+		}
+	}
+	LPC_TIMER16_1->TC = 0;
+	if (Chip_TIMER_CapturePending(LPC_TIMER16_1, 0))
+	{
+		Chip_TIMER_ClearCapture(LPC_TIMER16_1, 0);
+	}
+}
+
+// Auton PWD
+void TIMER32_0_IRQHandler(void)
+{
+	bool CurrentValue = Chip_GPIO_GetPinState(LPC_GPIO, 1, 5);
+	uint16_t CurrentTimer = LPC_TIMER32_0->CR[0];
+	if (CurrentValue)
+	{
+		AutonRiseTime = CurrentTimer;
+	}
+	else
+	{
+		if (AutonRiseTime != 0)
+		{
+			auton = CurrentTimer > 1750 ? true : false;
+		}
+	}
+	LPC_TIMER32_0->TC = 0;
+	if (Chip_TIMER_CapturePending(LPC_TIMER32_0, 0))
+	{
+		Chip_TIMER_ClearCapture(LPC_TIMER32_0, 0);
+	}
+}
+
 int main(void)
 {
 	uint32_t CanApiClkInitTable[2];
@@ -167,7 +220,10 @@ int main(void)
     baudrateCalculate(TEST_CCAN_BAUD_RATE, CanApiClkInitTable);
 
     Chip_GPIO_Init(LPC_GPIO);
+    // Input pins for the receiver
     Chip_GPIO_SetPinDIRInput(LPC_GPIO, 0, 2);
+    Chip_GPIO_SetPinDIRInput(LPC_GPIO, 1, 8);
+    Chip_GPIO_SetPinDIRInput(LPC_GPIO, 1, 5);
 
     // Uart crap
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_6, (IOCON_FUNC1 | IOCON_MODE_INACT));/* RXD */
@@ -195,8 +251,10 @@ int main(void)
 
 	// Set PIO0_2 to capture edges for the PWM signal
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO0_2, (IOCON_FUNC2 | IOCON_MODE_PULLDOWN));
+	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_8, (IOCON_FUNC1 | IOCON_MODE_PULLDOWN));
+	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_5, (IOCON_FUNC2 | IOCON_MODE_PULLDOWN));
 
-    // Timer for capture control register
+    // Timer for capture control register for demodulating steering PWM signal from remote control
 	Chip_TIMER_Init(LPC_TIMER16_0);
 	Chip_TIMER_Reset(LPC_TIMER16_0);
 	// Capture timer value on rising and falling edge, and generate interrupt
@@ -207,6 +265,30 @@ int main(void)
 	Chip_TIMER_Enable(LPC_TIMER16_0);
 	NVIC_ClearPendingIRQ(TIMER_16_0_IRQn);
 	NVIC_EnableIRQ(TIMER_16_0_IRQn);
+
+	// Timer for determining if brake up or down
+	Chip_TIMER_Init(LPC_TIMER16_1);
+	Chip_TIMER_Reset(LPC_TIMER16_1);
+	// Capture timer value on rising and falling edge, and generate interrupt
+	Chip_TIMER_CaptureRisingEdgeEnable(LPC_TIMER16_1, 0);
+	Chip_TIMER_CaptureFallingEdgeEnable(LPC_TIMER16_1, 0);
+	Chip_TIMER_CaptureEnableInt(LPC_TIMER16_1, 0);
+	LPC_TIMER16_1->PR = 48;
+	Chip_TIMER_Enable(LPC_TIMER16_1);
+	NVIC_ClearPendingIRQ(TIMER_16_1_IRQn);
+	NVIC_EnableIRQ(TIMER_16_1_IRQn);
+
+    // Timer for determining if in auton mode
+	Chip_TIMER_Init(LPC_TIMER32_0);
+	Chip_TIMER_Reset(LPC_TIMER32_0);
+	// Capture timer value on rising and falling edge, and generate interrupt
+	Chip_TIMER_CaptureRisingEdgeEnable(LPC_TIMER32_0, 0);
+	Chip_TIMER_CaptureFallingEdgeEnable(LPC_TIMER32_0, 0);
+	Chip_TIMER_CaptureEnableInt(LPC_TIMER32_0, 0);
+	LPC_TIMER32_0->PR = 48;
+	Chip_TIMER_Enable(LPC_TIMER32_0);
+	NVIC_ClearPendingIRQ(TIMER_32_0_IRQn);
+	NVIC_EnableIRQ(TIMER_32_0_IRQn);
 
     volatile static int i = 0 ;
     // Enter an infinite loop, just incrementing a counter

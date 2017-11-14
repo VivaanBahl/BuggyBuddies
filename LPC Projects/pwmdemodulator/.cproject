@@ -34,15 +34,15 @@
 								</option>
 								<option id="gnu.c.compiler.option.misc.other.342548247" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections" valueType="string"/>
 								<option id="gnu.c.compiler.option.optimization.flags.2104197783" name="Other optimization flags" superClass="gnu.c.compiler.option.optimization.flags" value="-fno-common" valueType="string"/>
-								<option id="com.crt.advproject.gcc.hdrlib.437274691" name="Library headers" superClass="com.crt.advproject.gcc.hdrlib" value="Redlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gcc.hdrlib.437274691" name="Library headers" superClass="com.crt.advproject.gcc.hdrlib" value="com.crt.advproject.gcc.hdrlib.codered" valueType="enumerated"/>
 								<option id="com.crt.advproject.gcc.specs.130956246" name="Specs" superClass="com.crt.advproject.gcc.specs" value="com.crt.advproject.gcc.specs.codered" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1866406563" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/nxp_lpcxpresso_11c24_board_lib/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lpc_chip_11cxx_lib/inc}&quot;"/>
 								</option>
-								<option id="com.crt.advproject.gcc.exe.debug.option.optimization.level.771492936" name="Optimization Level" superClass="com.crt.advproject.gcc.exe.debug.option.optimization.level" value="gnu.c.optimization.level.size" valueType="enumerated"/>
-								<option id="com.crt.advproject.gcc.lto.168227295" name="Enable Link-time optimization (-flto)" superClass="com.crt.advproject.gcc.lto" value="true" valueType="boolean"/>
+								<option id="com.crt.advproject.gcc.exe.debug.option.optimization.level.771492936" name="Optimization Level" superClass="com.crt.advproject.gcc.exe.debug.option.optimization.level" value="gnu.c.optimization.level.none" valueType="enumerated"/>
+								<option id="com.crt.advproject.gcc.lto.168227295" name="Enable Link-time optimization (-flto)" superClass="com.crt.advproject.gcc.lto" value="false" valueType="boolean"/>
 								<option id="com.crt.advproject.gcc.lto.fat.1483020979" name="Fat lto objects (-ffat-lto-objects)" superClass="com.crt.advproject.gcc.lto.fat" value="true" valueType="boolean"/>
 								<inputType id="com.crt.advproject.compiler.input.452259774" superClass="com.crt.advproject.compiler.input"/>
 							</tool>
@@ -67,7 +67,7 @@
 								<option id="com.crt.advproject.link.thumb.125237149" name="Thumb mode" superClass="com.crt.advproject.link.thumb" value="true" valueType="boolean"/>
 								<option id="com.crt.advproject.link.script.1504592203" name="Linker script" superClass="com.crt.advproject.link.script" value="&quot;pwmdemodulator_Debug.ld&quot;" valueType="string"/>
 								<option id="com.crt.advproject.link.manage.605575241" name="Manage linker script" superClass="com.crt.advproject.link.manage" value="true" valueType="boolean"/>
-								<option id="gnu.c.link.option.nostdlibs.53579980" name="No startup or default libs (-nostdlib)" superClass="gnu.c.link.option.nostdlibs" value="false" valueType="boolean"/>
+								<option id="gnu.c.link.option.nostdlibs.53579980" name="No startup or default libs (-nostdlib)" superClass="gnu.c.link.option.nostdlibs" value="true" valueType="boolean"/>
 								<option id="gnu.c.link.option.other.1633363655" name="Other options (-Xlinker [option])" superClass="gnu.c.link.option.other" valueType="stringList">
 									<listOptionValue builtIn="false" value="-Map=&quot;${BuildArtifactFileBaseName}.map&quot;"/>
 									<listOptionValue builtIn="false" value="--gc-sections"/>
