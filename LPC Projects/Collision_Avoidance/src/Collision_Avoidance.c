@@ -248,7 +248,7 @@ int main(void)
     	double distance = GetDistance();
     	uint32_t uint_distance = (uint32_t)distance;
 
-    	msg_obj.msgobj  = 0;
+    	msg_obj.msgobj  = 1;
     	msg_obj.mode_id = 0x000;
     	msg_obj.mask    = 0x0;
     	msg_obj.dlc     = 4;
