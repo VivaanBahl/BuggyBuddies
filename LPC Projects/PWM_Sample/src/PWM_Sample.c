@@ -29,6 +29,8 @@ volatile long ticks;
 volatile int desired_steering_angle = 0;
 //volatile int direction = 1; // +1 forwards, -1 backwards
 
+int danger = 0;
+
 
 #define TEST_CCAN_BAUD_RATE 1000000
 CCAN_MSG_OBJ_T msg_obj;
@@ -63,16 +65,48 @@ void baudrateCalculate(uint32_t baud_rate, uint32_t *can_api_timing_cfg)
 /*	Function is executed by the Callback handler after
     a CAN message has been received */
 void CAN_rx(uint8_t msg_obj_num) {
-
 	/* Determine which CAN message has been received */
 	msg_obj.msgobj = msg_obj_num;
 	/* Now load up the msg_obj structure with the CAN message */
 	LPC_CCAN_API->can_receive(&msg_obj);
 	int new_desired_angle = 0;
-	new_desired_angle |= (msg_obj.data[0]);
-	new_desired_angle |= (msg_obj.data[1]) << 8;
-	new_desired_angle |= (msg_obj.data[2]) << 16;
-	new_desired_angle |= (msg_obj.data[3]) << 24;
+
+//	if (msg_obj_num == 1)
+//	{
+//		Board_UARTPutSTR("blah\n");
+//		new_desired_angle |= (msg_obj.data[0]);
+//		new_desired_angle |= (msg_obj.data[1]) << 8;
+//		new_desired_angle |= (msg_obj.data[2]) << 16;
+//		new_desired_angle |= (msg_obj.data[3]) << 24;
+//	}
+//	else if (msg_obj_num == 0)
+//	{
+//		Board_UARTPutSTR("awoeifajsdfjaosifajsdf\n");
+//		new_desired_angle = 1000;
+//	}
+
+	if (msg_obj.mode_id == 0)
+	{
+		uint32_t ultrasonic_distance_mm;
+		ultrasonic_distance_mm |= (msg_obj.data[0]);
+		ultrasonic_distance_mm |= (msg_obj.data[1]) << 8;
+		ultrasonic_distance_mm |= (msg_obj.data[2]) << 16;
+		ultrasonic_distance_mm |= (msg_obj.data[3]) << 24;
+
+		if (ultrasonic_distance_mm < 1200)
+		{
+			Board_UARTPutSTR("ooooooops\n");
+			danger = 1;
+			new_desired_angle = 1000;
+		}
+	}
+	else if(msg_obj.mode_id == 0x100)
+	{
+		new_desired_angle |= (msg_obj.data[0]);
+		new_desired_angle |= (msg_obj.data[1]) << 8;
+		new_desired_angle |= (msg_obj.data[2]) << 16;
+		new_desired_angle |= (msg_obj.data[3]) << 24;
+	}
 
 	desired_steering_angle = new_desired_angle;
 //	char buf[16];
@@ -240,7 +274,7 @@ int main(void)
 
 	msg_obj.msgobj = 0;
 	msg_obj.mode_id = 0x000;
-	msg_obj.mask = 0x700;
+	msg_obj.mask = 0x000;
 	LPC_CCAN_API->config_rxmsgobj(&msg_obj);
 
 

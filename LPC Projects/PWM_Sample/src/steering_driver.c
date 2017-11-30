@@ -122,9 +122,9 @@ void steering_set(int angle)
 
     int error = angle - actual;
 
-	char buf[16];
-	sprintf(buf, "%d %d %d\n", angle, actual, error);
-	Board_UARTPutSTR(buf);
+//	char buf[16];
+//	sprintf(buf, "%d %d %d\n", angle, actual, error);
+//	Board_UARTPutSTR(buf);
 
     long output_vel = 0;
     if(labs(error) > STEERING_ERROR_THRESHOLD) { //0.1 degree deadband
