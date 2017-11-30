@@ -17,7 +17,7 @@
 #define PIN_B					5 /* GPIO pin number mapped to PIN_B */
 #define PIN_B_PORT				0 /* GPIO port number mapped to PIN_B */
 #define IOCON_PIN_A_ID			IOCON_PIO0_2 /* IOCON pin identifer */
-#define IOCON_PIN_B_ID			IOCON_PIO0_3 /* IOCON pin identifer */
+#define IOCON_PIN_B_ID			IOCON_PIO0_5 /* IOCON pin identifer */
 #define ENCODER_IRQ_HANDLER		PIOINT0_IRQHandler /* GPIO interrupt IRQ function name */
 #define ENCODER_NVIC_NAME		EINT0_IRQn /* GPIO interrupt NVIC interrupt name */
 
