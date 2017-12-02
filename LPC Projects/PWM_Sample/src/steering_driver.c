@@ -27,7 +27,7 @@
 #define STEERING_MAX_PWM 150 // max PWM value to add on top of the center_us
 #define MOTOR_ENCODER_TICKS_PER_REV 36864 // 4096 * 9 = 12-bit * 1:9 gearbox
 #define MOTOR_FEED_FORWARD 200
-#define STEERING_ERROR_THRESHOLD 50
+#define STEERING_ERROR_THRESHOLD 5
 #define DEGREE_HUNDREDTHS_PER_REV 36000
 
 #define SERVO_REFRESH_US 5000L
@@ -92,9 +92,6 @@ void steer_set_velocity(long target_velocity) {
     long output_int_us = steer_set_prev_velocity + output_us;
     output_int_us = clamp(output_int_us, STEERING_MAX_PWM, -STEERING_MAX_PWM);
 
-    // dbg_printf("target: %ld, current: %ld, error: %ld, correction: %ld, output: %ld\n",
-    // target_velocity, actual_velocity, error, output_us, output_int_us);
-
     //Send command to the motor
     servo_set_us(output_int_us + STEERING_PWM_CENTER_US);
 
@@ -121,10 +118,6 @@ void steering_set(int angle)
                              DEGREE_HUNDREDTHS_PER_REV);
 
     int error = angle - actual;
-
-//	char buf[16];
-//	sprintf(buf, "%d %d %d\n", angle, actual, error);
-//	Board_UARTPutSTR(buf);
 
     long output_vel = 0;
     if(labs(error) > STEERING_ERROR_THRESHOLD) { //0.1 degree deadband

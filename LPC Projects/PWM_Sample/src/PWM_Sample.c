@@ -27,7 +27,6 @@ volatile uint8_t last_state;
 volatile long ticks;
 
 volatile int desired_steering_angle = 0;
-//volatile int direction = 1; // +1 forwards, -1 backwards
 
 int danger = 0;
 
@@ -71,19 +70,6 @@ void CAN_rx(uint8_t msg_obj_num) {
 	LPC_CCAN_API->can_receive(&msg_obj);
 	int new_desired_angle = 0;
 
-//	if (msg_obj_num == 1)
-//	{
-//		Board_UARTPutSTR("blah\n");
-//		new_desired_angle |= (msg_obj.data[0]);
-//		new_desired_angle |= (msg_obj.data[1]) << 8;
-//		new_desired_angle |= (msg_obj.data[2]) << 16;
-//		new_desired_angle |= (msg_obj.data[3]) << 24;
-//	}
-//	else if (msg_obj_num == 0)
-//	{
-//		Board_UARTPutSTR("awoeifajsdfjaosifajsdf\n");
-//		new_desired_angle = 1000;
-//	}
 
 	if (msg_obj.mode_id == 0)
 	{
@@ -109,9 +95,6 @@ void CAN_rx(uint8_t msg_obj_num) {
 	}
 
 	desired_steering_angle = new_desired_angle;
-//	char buf[16];
-//	sprintf(buf, "%ld\n", new_desired_angle);
-//	Board_UARTPutSTR(buf);
 }
 
 /*	CAN error callback */
@@ -193,10 +176,10 @@ void ENCODER_IRQ_HANDLER(void) {
 	last_state = new_state;
 	return;
 }
-///**
-// * @brief	Handle interrupt from SysTick timer
-// * @return	Nothing
-// */
+/**
+ * @brief	Handle interrupt from SysTick timer
+ * @return	Nothing
+ */
 
 void TIMER16_1_IRQHandler(void)
 {
@@ -229,7 +212,6 @@ int main(void)
 	baudrateCalculate(TEST_CCAN_BAUD_RATE, CanApiClkInitTable);
 
 	/* Enable and setup SysTick Timer at a periodic rate */
-//	SysTick_Config(SystemCoreClock / 10);
 
 	/* Enable timer 1 clock */
 	Chip_TIMER_Init(LPC_TIMER16_0);
@@ -255,7 +237,7 @@ int main(void)
 	NVIC_ClearPendingIRQ(TIMER_16_1_IRQn);
 	NVIC_EnableIRQ(TIMER_16_1_IRQn);
 
-    // Uart crap
+    // Uart setup
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_6, (IOCON_FUNC1 | IOCON_MODE_INACT));/* RXD */
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_7, (IOCON_FUNC1 | IOCON_MODE_INACT));/* TXD */
 	Chip_UART_Init(LPC_USART);
@@ -270,7 +252,7 @@ int main(void)
 	LPC_CCAN_API->config_calb(&callbacks);
 	/* Enable the CAN Interrupt */
 	NVIC_EnableIRQ(CAN_IRQn);
-//	NVIC_ClearPendingIRQ(CAN_IRQn);
+	NVIC_ClearPendingIRQ(CAN_IRQn);
 
 	msg_obj.msgobj = 0;
 	msg_obj.mode_id = 0x000;
