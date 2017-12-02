@@ -6,8 +6,8 @@ from gps_common.msg import GPSFix
 
 def start_subscriber_spin():
 
-    gps_pub = rospy.Publisher("GPS",
-    rospy.init_node("GPS_Plotter", anonymous=True)
+    gps_pub = rospy.Publisher("GPS", 57600);
+    rospy.init_node("GPS_Parser", anonymous=True)
 
     gps_port = serial.Serial("/dev/ttyUSB0", 57600);
 
