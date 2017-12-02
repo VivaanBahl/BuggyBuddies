@@ -6,7 +6,7 @@
  Copyright   : $(copyright)
  Description : main definition
 ===============================================================================
-*/
+ */
 
 #if defined (__USE_LPCOPEN)
 #if defined(NO_BOARD_LIB)
@@ -50,27 +50,16 @@ void CAN_rx(uint8_t msg_obj_num) {
 	msg_obj.msgobj = msg_obj_num;
 	/* Now load up the msg_obj structure with the CAN message */
 	LPC_CCAN_API->can_receive(&msg_obj);
-	if (msg_obj_num == 1) {
-		/* Simply transmit CAN frame (echo) with with ID +0x100 via buffer 2 */
-		msg_obj.msgobj = 2;
-		msg_obj.mode_id += 0x100;
-		LPC_CCAN_API->can_transmit(&msg_obj);
-	}
 
-	//Board_UARTPutSTR(msg_obj.data);
-	Board_UARTPutSTR("\n");
 	int received = 0;
 	received |= (uint8_t)msg_obj.data[0];
 	received |= ((uint8_t)msg_obj.data[1] << 8);
 	received |= ((uint8_t)msg_obj.data[2] << 16);
 	received |= ((uint8_t)msg_obj.data[3] << 24);
-	//char buf[100];
-	//sprintf(buf, "%d\n", received);
-	//Board_UARTPutSTR(buf);
 }
 
 void CAN_error(uint32_t error_info) {
-	Board_UARTPutSTR("you succ\n");
+	Board_UARTPutSTR("CAN error!\n");
 }
 
 void baudrateCalculate(uint32_t baud_rate, uint32_t *can_api_timing_cfg)
@@ -91,7 +80,7 @@ void baudrateCalculate(uint32_t baud_rate, uint32_t *can_api_timing_cfg)
 					can_sjw = seg1 > 3 ? 3 : seg1;
 					can_api_timing_cfg[0] = div;
 					can_api_timing_cfg[1] =
-						((quanta - 1) & 0x3F) | (can_sjw & 0x03) << 6 | (seg1 & 0x0F) << 8 | (seg2 & 0x07) << 12;
+							((quanta - 1) & 0x3F) | (can_sjw & 0x03) << 6 | (seg1 & 0x0F) << 8 | (seg2 & 0x07) << 12;
 					return;
 				}
 			}
@@ -100,11 +89,11 @@ void baudrateCalculate(uint32_t baud_rate, uint32_t *can_api_timing_cfg)
 }
 
 long map(long x,
-                long in_offset,
-                long in_scale,
-                long out_offset,
-                long out_scale) {
-    return ((x - in_offset) * out_scale / in_scale) + out_offset;
+		long in_offset,
+		long in_scale,
+		long out_offset,
+		long out_scale) {
+	return ((x - in_offset) * out_scale / in_scale) + out_offset;
 }
 
 // Steering PWD
@@ -122,16 +111,13 @@ void TIMER16_0_IRQHandler(void)
 		{
 			if (CurrentTimer > k_min_pulse && CurrentTimer < k_max_pulse)
 			{
-				//char buf[100];
-				//sprintf(buf, "%d\n", CurrentTimer);
-				//Board_UARTPutSTR(buf);
-								/* Send a simple one time CAN message */
+				/* Send a simple one time CAN message */
 				PulseWidth_US = CurrentTimer;
-			    int value = (int)map(PulseWidth_US,
-			                       k_offset_rc_in,
-			                       k_scale_rc_in,
-			                       k_offset_stored_angle,
-			                       k_scale_stored_angle);
+				int value = (int)map(PulseWidth_US,
+						k_offset_rc_in,
+						k_scale_rc_in,
+						k_offset_stored_angle,
+						k_scale_stored_angle);
 				msg_obj.msgobj  = 0;
 				msg_obj.mode_id = 0x000;
 				msg_obj.mask    = 0x0;
@@ -203,29 +189,29 @@ int main(void)
 	uint32_t CanApiClkInitTable[2];
 	/* Publish CAN Callback Functions */
 	CCAN_CALLBACKS_T callbacks = {
-		CAN_rx,
-		CAN_tx,
-		CAN_error,
-		NULL,
-		NULL,
-		NULL,
-		NULL,
-		NULL,
+			CAN_rx,
+			CAN_tx,
+			CAN_error,
+			NULL,
+			NULL,
+			NULL,
+			NULL,
+			NULL,
 	};
 
-    SystemCoreClockUpdate();
-    Board_Init();
-    // Set the LED to the state of "On"
-    Board_LED_Set(0, true);
-    baudrateCalculate(TEST_CCAN_BAUD_RATE, CanApiClkInitTable);
+	SystemCoreClockUpdate();
+	Board_Init();
+	// Set the LED to the state of "On"
+	Board_LED_Set(0, true);
+	baudrateCalculate(TEST_CCAN_BAUD_RATE, CanApiClkInitTable);
 
-    Chip_GPIO_Init(LPC_GPIO);
-    // Input pins for the receiver
-    Chip_GPIO_SetPinDIRInput(LPC_GPIO, 0, 2);
-    Chip_GPIO_SetPinDIRInput(LPC_GPIO, 1, 8);
-    Chip_GPIO_SetPinDIRInput(LPC_GPIO, 1, 5);
+	Chip_GPIO_Init(LPC_GPIO);
+	// Input pins for the receiver
+	Chip_GPIO_SetPinDIRInput(LPC_GPIO, 0, 2);
+	Chip_GPIO_SetPinDIRInput(LPC_GPIO, 1, 8);
+	Chip_GPIO_SetPinDIRInput(LPC_GPIO, 1, 5);
 
-    // Uart crap
+	// Uart setup
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_6, (IOCON_FUNC1 | IOCON_MODE_INACT));/* RXD */
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_7, (IOCON_FUNC1 | IOCON_MODE_INACT));/* TXD */
 	Chip_UART_Init(LPC_USART);
@@ -234,9 +220,9 @@ int main(void)
 	Chip_UART_SetupFIFOS(LPC_USART, (UART_FCR_FIFO_EN | UART_FCR_TRG_LEV2));
 	Chip_UART_TXEnable(LPC_USART);
 
-	Board_UARTPutSTR("asdfadsfadfasdf\n");
+	Board_UARTPutSTR("Hello World! This is Radio Receiver!\n");
 
-	// CAN crap
+	// CAN setup
 	LPC_CCAN_API->init_can(&CanApiClkInitTable[0], TRUE);
 	/* Configure the CAN callback functions */
 	LPC_CCAN_API->config_calb(&callbacks);
@@ -254,7 +240,7 @@ int main(void)
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_8, (IOCON_FUNC1 | IOCON_MODE_PULLDOWN));
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_5, (IOCON_FUNC2 | IOCON_MODE_PULLDOWN));
 
-    // Timer for capture control register for demodulating steering PWM signal from remote control
+	// Timer for capture control register for demodulating steering PWM signal from remote control
 	Chip_TIMER_Init(LPC_TIMER16_0);
 	Chip_TIMER_Reset(LPC_TIMER16_0);
 	// Capture timer value on rising and falling edge, and generate interrupt
@@ -278,7 +264,7 @@ int main(void)
 	NVIC_ClearPendingIRQ(TIMER_16_1_IRQn);
 	NVIC_EnableIRQ(TIMER_16_1_IRQn);
 
-    // Timer for determining if in auton mode
+	// Timer for determining if in auton mode
 	Chip_TIMER_Init(LPC_TIMER32_0);
 	Chip_TIMER_Reset(LPC_TIMER32_0);
 	// Capture timer value on rising and falling edge, and generate interrupt
@@ -290,11 +276,11 @@ int main(void)
 	NVIC_ClearPendingIRQ(TIMER_32_0_IRQn);
 	NVIC_EnableIRQ(TIMER_32_0_IRQn);
 
-    volatile static int i = 0 ;
-    // Enter an infinite loop, just incrementing a counter
-    while(1) {
-        i++ ;
-        __WFI();
-    }
-    return 0 ;
+	volatile static int i = 0 ;
+	// Enter an infinite loop, just incrementing a counter
+	while(1) {
+		i++ ;
+		__WFI();
+	}
+	return 0 ;
 }
