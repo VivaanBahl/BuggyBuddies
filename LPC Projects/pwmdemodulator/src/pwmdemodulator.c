@@ -19,6 +19,7 @@
 #include <cr_section_macros.h>
 
 #define TEST_CCAN_BAUD_RATE 1000000
+#define PWM_SWITCH_THRESHOLD 1750
 CCAN_MSG_OBJ_T msg_obj;
 
 uint16_t k_min_pulse = 500;
@@ -28,7 +29,7 @@ uint16_t k_scale_rc_in = 350;
 uint16_t k_offset_stored_angle = 0;
 uint16_t k_scale_stored_angle = 1500;
 
-uint16_t RiseTime = 0;
+uint16_t SteeringRiseTime = 0;
 uint16_t PulseWidth_US = 0;
 
 uint16_t BrakeRiseTime = 0;
@@ -103,11 +104,11 @@ void TIMER16_0_IRQHandler(void)
 	uint16_t CurrentTimer = LPC_TIMER16_0->CR[0];
 	if (CurrentValue)
 	{
-		RiseTime = CurrentTimer;
+		SteeringRiseTime = CurrentTimer;
 	}
 	else
 	{
-		if (RiseTime != 0)
+		if (SteeringRiseTime != 0)
 		{
 			if (CurrentTimer > k_min_pulse && CurrentTimer < k_max_pulse)
 			{
@@ -151,7 +152,7 @@ void TIMER16_1_IRQHandler(void)
 	{
 		if (BrakeRiseTime != 0)
 		{
-			brake = CurrentTimer > 1750 ? true : false;
+			brake = CurrentTimer > PWM_SWITCH_THRESHOLD;
 		}
 	}
 	LPC_TIMER16_1->TC = 0;
@@ -174,7 +175,7 @@ void TIMER32_0_IRQHandler(void)
 	{
 		if (AutonRiseTime != 0)
 		{
-			auton = CurrentTimer > 1750 ? true : false;
+			auton = CurrentTimer > PWM_SWITCH_THRESHOLD;
 		}
 	}
 	LPC_TIMER32_0->TC = 0;
