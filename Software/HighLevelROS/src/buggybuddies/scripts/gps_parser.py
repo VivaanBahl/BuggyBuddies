@@ -6,8 +6,8 @@ from gps_common.msg import GPSFix
 
 def start_subscriber_spin():
 
-    gps_pub = rospy.Publisher("GPS", 57600);
     rospy.init_node("GPS_Parser", anonymous=True)
+    gps_pub = rospy.Publisher("GPS", GPSFix, queue_size=100);
 
     gps_port = serial.Serial("/dev/ttyUSB0", 57600);
 
@@ -30,9 +30,8 @@ def start_subscriber_spin():
         w = tokens[5];
         if n is "W": lon = -lon;
 
-        GPSFix msg;
-        msg.latitude = lat;
-        msg.longitude = lon;
+        m = GPSFix(latitude=lat, longitude=lon);
+        gps_pub.publish(m);
 
     pass
 

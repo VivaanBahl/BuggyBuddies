@@ -65,6 +65,8 @@ def start_subscriber_spin():
                 waypoint_index = i;
                 break;
 
+        print waypoint_index;
+
         # steer towards waypoint
         waypoint = waypoint_list[waypoint_index];
         utm_wp = utm.from_latlon(waypoint[0], waypoint[1]);
@@ -79,9 +81,11 @@ def start_subscriber_spin():
 
         angle = math.atan2(dy, dx) - math.atan2(pdy, pdx);
         if (angle > 0):
-            angle = 1000;
+            angle = "+";
+            print "right";
         else:
-            angle = -1000;
+            angle = "-";
+            print "left";
 
         cmd_port.write(str(angle) + "\n");
 
