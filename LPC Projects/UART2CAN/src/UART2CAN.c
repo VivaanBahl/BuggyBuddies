@@ -6,7 +6,7 @@
  Copyright   : $(copyright)
  Description : main definition
 ===============================================================================
-*/
+ */
 
 #if defined (__USE_LPCOPEN)
 #if defined(NO_BOARD_LIB)
@@ -39,7 +39,7 @@ void baudrateCalculate(uint32_t baud_rate, uint32_t *can_api_timing_cfg)
 					can_sjw = seg1 > 3 ? 3 : seg1;
 					can_api_timing_cfg[0] = div;
 					can_api_timing_cfg[1] =
-						((quanta - 1) & 0x3F) | (can_sjw & 0x03) << 6 | (seg1 & 0x0F) << 8 | (seg2 & 0x07) << 12;
+							((quanta - 1) & 0x3F) | (can_sjw & 0x03) << 6 | (seg1 & 0x0F) << 8 | (seg2 & 0x07) << 12;
 					return;
 				}
 			}
@@ -77,8 +77,8 @@ void SysTick_Handler()
 int main(void) {
 
 	uint32_t CanApiClkInitTable[2];
-		/* Publish CAN Callback Functions */
-		CCAN_CALLBACKS_T callbacks = {
+	/* Publish CAN Callback Functions */
+	CCAN_CALLBACKS_T callbacks = {
 			NULL,
 			CAN_tx,
 			CAN_error,
@@ -87,11 +87,11 @@ int main(void) {
 			NULL,
 			NULL,
 			NULL,
-		};
+	};
 	SystemCoreClockUpdate();
 	Board_Init();
 	baudrateCalculate(TEST_CCAN_BAUD_RATE, CanApiClkInitTable);
-//	SysTick_Config(SystemCoreClock / 10);
+	//	SysTick_Config(SystemCoreClock / 10);
 
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_6, (IOCON_FUNC1 | IOCON_MODE_INACT));/* RXD */
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_7, (IOCON_FUNC1 | IOCON_MODE_INACT));/* TXD */
@@ -109,26 +109,48 @@ int main(void) {
 	NVIC_EnableIRQ(CAN_IRQn);
 	NVIC_ClearPendingIRQ(CAN_IRQn);
 
-	char c = 0;
-	while (c != 0x0A)
-	{
-		c = Board_UARTGetChar();
-		if (c == 0xFF) continue;
+
+	while(1) {
+		char c = 0;
+		int steer_angle = 0;
+
+		while (c != 0x0A)
+		{
+			c = Board_UARTGetChar();
+			if (c == 0xFF) continue;
+			if (c == '-') {
+				steer_angle = -1000;
+				Board_UARTPutSTR("minus\n");
+			}
+			else if (c == '+') {
+				steer_angle = 1000;
+				Board_UARTPutSTR("plus\n");
+			}
+			else if (c == '0') {
+				steer_angle = 0;
+				Board_UARTPutSTR("zero\n");
+			}
+		}
+
 		msg_obj.msgobj  = 0;
 		msg_obj.mode_id = 0x200;
 		msg_obj.mask    = 0x0;
 		msg_obj.dlc     = 4;
-		msg_obj.data[0] = c;
+		msg_obj.data[0] = steer_angle & 0xFF;
+		msg_obj.data[1] = (steer_angle >> 8) & 0xFF;
+		msg_obj.data[2] = (steer_angle >> 16) & 0xFF;
+		msg_obj.data[3] = (steer_angle >> 24) & 0xFF;
 		LPC_CCAN_API->can_transmit(&msg_obj);
 	}
-	Board_UARTPutSTR("hello world\n");
-    // TODO: insert code here
 
-    // Force the counter to be placed into memory
-    volatile static int i = 0 ;
-    // Enter an infinite loop, just incrementing a counter
-    while(1) {
-        i++ ;
-    }
-    return 0 ;
+	Board_UARTPutSTR("hello world\n");
+	// TODO: insert code here
+
+	// Force the counter to be placed into memory
+	volatile static int i = 0 ;
+	// Enter an infinite loop, just incrementing a counter
+	while(1) {
+		i++ ;
+	}
+	return 0 ;
 }
