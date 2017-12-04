@@ -120,7 +120,7 @@ void TIMER16_0_IRQHandler(void)
 						k_offset_stored_angle,
 						k_scale_stored_angle);
 				msg_obj.msgobj  = 0;
-				msg_obj.mode_id = 0x000;
+				msg_obj.mode_id = 0x100;
 				msg_obj.mask    = 0x0;
 				msg_obj.dlc     = 4;
 				msg_obj.data[0] = value & 0xFF;
