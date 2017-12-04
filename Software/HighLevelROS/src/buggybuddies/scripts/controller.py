@@ -6,14 +6,14 @@ import serial
 import utm
 import math;
 
-current_lat = 0.0;
-current_lon = 0.0;
+curr_pose = (0.0, 0.0);
+prev_pose = (0.0, 0.0);
 
 def subscriber_callback(data):
-    global current_lat, current_lon;
+    global curr_pose, prev_pose;
 
-    current_lat = data.latitude;
-    current_lon = data.longitude;
+    prev_pose = curr_pose;
+    curr_pose = (data.latitude, data.longitude)
     pass
 
 
@@ -58,7 +58,7 @@ def start_subscriber_spin():
         for i in xrange(waypoint_index, len(waypoint_list)):
             waypoint = waypoint_list[waypoint_index];
             utm_wp = utm.from_latlon(waypoint[0], waypoint[1]);
-            utm_cp = utm.from_latlon(current_lat, current_lon);
+            utm_cp = utm.from_latlon(curr_pose[0], curr_pose[1]);
 
             distance = (utm_wp[0] - utm_cp[0]) ** 2 + (utm_wp[1] - utm_cp[1]) ** 2;
             if (distance < 20 and distance > 5):
@@ -68,12 +68,16 @@ def start_subscriber_spin():
         # steer towards waypoint
         waypoint = waypoint_list[waypoint_index];
         utm_wp = utm.from_latlon(waypoint[0], waypoint[1]);
-        utm_cp = utm.from_latlon(current_lat, current_lon);
+        utm_cp = utm.from_latlon(curr_pose[0], curr_pose[1]);
+        utm_pp = utm.from_latlon(prev_pose[0], prev_pose[1]);
 
         dy = utm_wp[1] - utm_cp[1];
         dx = utm_wp[0] - utm_cp[0];
 
-        angle = math.atan2(dy, dx);
+        pdy = utm_cp[1] - utm_pp[1];
+        pdx = utm_cp[0] - utm_pp[0];
+
+        angle = math.atan2(dy, dx) - math.atan2(pdy, pdx);
         if (angle > 0):
             angle = 1000;
         else:
