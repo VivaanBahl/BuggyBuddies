@@ -119,11 +119,11 @@ int main(void) {
 			c = Board_UARTGetChar();
 			if (c == 0xFF) continue;
 			if (c == '-') {
-				steer_angle = -1000;
+				steer_angle = -400;
 				Board_UARTPutSTR("minus\n");
 			}
 			else if (c == '+') {
-				steer_angle = 1000;
+				steer_angle = 400;
 				Board_UARTPutSTR("plus\n");
 			}
 			else if (c == '0') {
