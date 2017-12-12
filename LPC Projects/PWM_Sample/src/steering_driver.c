@@ -14,15 +14,14 @@
 #define STEERING_LIMIT_RIGHT 1500
 #define STEERING_LOOP_TIME_US 10000L
 #define MICROSECONDS_PER_SECOND 1000000L
-#define STEERING_KP_NUMERATOR 1L
-#define STEERING_KP_DEMONENATOR 2L
-#define STEERING_KD_NUMERATOR 0L
-#define STEERING_KD_DENOMENATOR 100L
-//limited by 16-bit signed? 400 degress per second - 50% cpu usage from encoder interrupts
-//#define STEERING_MAX_SPEED 32000L
-#define STEERING_MAX_SPEED 1000L
-#define STEERING_KV_NUMERATOR 1L
-#define STEERING_KV_DENOMENATOR 10L
+#define STEERING_KP_NUMERATOR 5L
+#define STEERING_KP_DEMONENATOR 10L
+#define STEERING_KD_NUMERATOR 5000L //4500
+#define STEERING_KD_DENOMENATOR 10L
+//limited by 16-bit signed? 400 degrees per second - 50% cpu usage from encoder interrupts
+#define STEERING_MAX_SPEED 32000L
+#define STEERING_KV_NUMERATOR 7L
+#define STEERING_KV_DENOMENATOR 1000L
 #define STEERING_PWM_CENTER_US 1500L //The PWM value that gives no movement.
 #define STEERING_MAX_PWM 150 // max PWM value to add on top of the center_us
 #define MOTOR_ENCODER_TICKS_PER_REV 36864 // 4096 * 9 = 12-bit * 1:9 gearbox
