@@ -68,7 +68,7 @@ void CAN_rx(uint8_t msg_obj_num) {
 	msg_obj.msgobj = msg_obj_num;
 	/* Now load up the msg_obj structure with the CAN message */
 	LPC_CCAN_API->can_receive(&msg_obj);
-	int new_desired_angle = 0;
+	int new_desired_angle = desired_steering_angle;
 
 
 	if (msg_obj.mode_id == 0)
@@ -306,6 +306,8 @@ int main(void)
 	bool pin_a = Chip_GPIO_GetPinState(LPC_GPIO, PIN_A_PORT, PIN_A);
 	bool pin_b = Chip_GPIO_GetPinState(LPC_GPIO, PIN_B_PORT, PIN_B);
 	last_state = (((uint8_t)pin_a << 1) | ((uint8_t)pin_b)) & 0x0F;
+
+	Board_UARTPutSTR("Hello World! This is Steering Controller!\n");
 
 
 	/* LEDs toggle in interrupt handlers */
