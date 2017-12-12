@@ -68,10 +68,6 @@ void CAN_IRQHandler(void) {
 	LPC_CCAN_API->isr();
 }
 
-void SysTick_Handler()
-{
-	Board_UARTPutSTR("hello world\n");
-}
 // TODO: insert other definitions and declarations here
 
 int main(void) {
@@ -91,7 +87,6 @@ int main(void) {
 	SystemCoreClockUpdate();
 	Board_Init();
 	baudrateCalculate(TEST_CCAN_BAUD_RATE, CanApiClkInitTable);
-	//	SysTick_Config(SystemCoreClock / 10);
 
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_6, (IOCON_FUNC1 | IOCON_MODE_INACT));/* RXD */
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_7, (IOCON_FUNC1 | IOCON_MODE_INACT));/* TXD */
@@ -114,8 +109,10 @@ int main(void) {
 		char c = 0;
 		int steer_angle = 0;
 
+		// get characters up until newline
 		while (c != 0x0A)
 		{
+			// get next character, returns -1 if no character present
 			c = Board_UARTGetChar();
 			if (c == 0xFF) continue;
 			if (c == '-') {
