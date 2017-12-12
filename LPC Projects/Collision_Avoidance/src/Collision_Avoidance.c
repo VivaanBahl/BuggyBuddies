@@ -117,11 +117,6 @@ uint16_t BurstAndCapture(enum ReadingType type)
     low = Board_UARTGetChar();
     checksum = Board_UARTGetChar();
 
-    //if (Chip_UART_ReadRB(LPC_USART, &rxring, &high, 1) == 0) return -1;
-    //if (Chip_UART_ReadRB(LPC_USART, &rxring, &low, 1) == 0) return -1;
-    //while (Chip_UART_ReadRB(LPC_USART, &rxring, &checksum, 1) > 0);
-    //if (Chip_UART_ReadRB(LPC_USART, &rxring, &checksum, 1) == 0) return -1;
-
     //TODO: Verify that the checksum matches the high and low byte
 
     uint16_t timeOfFlight = (((uint16_t)high << 8) + (uint16_t)low);
