@@ -32,7 +32,7 @@ volatile int desired_steering_angle = 0;
 #define TEST_CCAN_BAUD_RATE 1000000
 CCAN_MSG_OBJ_T msg_obj;
 
-bool danger = false;
+bool collision_detected = false;
 
 void baudrateCalculate(uint32_t baud_rate, uint32_t *can_api_timing_cfg)
 {
@@ -82,17 +82,17 @@ void CAN_rx(uint8_t msg_obj_num) {
 		if (ultrasonic_distance_mm < 1200)
 		{
 			Board_UARTPutSTR("ooooooops\n");
-			danger = true;
+			collision_detected = true;
 			new_desired_angle = 1000;
 		}
 		else
 		{
-			danger = false;
+			collision_detected = false;
 		}
 	}
 	else if (msg_obj.mode_id == 0x100)
 	{
-		if (danger)
+		if (collision_detected)
 		{
 			new_desired_angle = 1000;
 		}
