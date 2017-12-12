@@ -32,6 +32,8 @@ volatile int desired_steering_angle = 0;
 #define TEST_CCAN_BAUD_RATE 1000000
 CCAN_MSG_OBJ_T msg_obj;
 
+bool collision_detected = false;
+
 void baudrateCalculate(uint32_t baud_rate, uint32_t *can_api_timing_cfg)
 {
 	uint32_t pClk, div, quanta, segs, seg1, seg2, clk_per_bit, can_sjw;
@@ -66,7 +68,7 @@ void CAN_rx(uint8_t msg_obj_num) {
 	msg_obj.msgobj = msg_obj_num;
 	/* Now load up the msg_obj structure with the CAN message */
 	LPC_CCAN_API->can_receive(&msg_obj);
-	int new_desired_angle = 0;
+	int new_desired_angle = desired_steering_angle;
 
 
 	if (msg_obj.mode_id == 0)
@@ -80,15 +82,27 @@ void CAN_rx(uint8_t msg_obj_num) {
 		if (ultrasonic_distance_mm < 1200)
 		{
 			Board_UARTPutSTR("ooooooops\n");
+			collision_detected = true;
 			new_desired_angle = 1000;
 		}
+		else
+		{
+			collision_detected = false;
+		}
 	}
-	else if(msg_obj.mode_id == 0x100)
+	else if (msg_obj.mode_id == 0x100)
 	{
-		new_desired_angle |= (msg_obj.data[0]);
-		new_desired_angle |= (msg_obj.data[1]) << 8;
-		new_desired_angle |= (msg_obj.data[2]) << 16;
-		new_desired_angle |= (msg_obj.data[3]) << 24;
+		if (collision_detected)
+		{
+			new_desired_angle = 1000;
+		}
+		else
+		{
+			new_desired_angle |= (msg_obj.data[0]);
+			new_desired_angle |= (msg_obj.data[1]) << 8;
+			new_desired_angle |= (msg_obj.data[2]) << 16;
+			new_desired_angle |= (msg_obj.data[3]) << 24;
+		}
 	}
 
 	desired_steering_angle = new_desired_angle;
@@ -292,6 +306,8 @@ int main(void)
 	bool pin_a = Chip_GPIO_GetPinState(LPC_GPIO, PIN_A_PORT, PIN_A);
 	bool pin_b = Chip_GPIO_GetPinState(LPC_GPIO, PIN_B_PORT, PIN_B);
 	last_state = (((uint8_t)pin_a << 1) | ((uint8_t)pin_b)) & 0x0F;
+
+	Board_UARTPutSTR("Hello World! This is Steering Controller!\n");
 
 
 	/* LEDs toggle in interrupt handlers */
