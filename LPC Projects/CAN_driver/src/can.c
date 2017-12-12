@@ -1,6 +1,6 @@
 /*
- * CAN driver that implements basic CAN_init, CAN_send, and CAN_receive
- * User has to write their own CAN_tx, CAN_rx, and CAN_error functions
+ * CAN driver that implements basic CAN_init, CAN_send_message, and CAN_setup_receiver
+ * User has to write their own CAN_tx_cb, CAN_rx_cb, and CAN_error_cb callback functions
  */
 
 #include "board.h"
@@ -34,15 +34,15 @@ void baudrateCalculate(uint32_t baud_rate, uint32_t *can_api_timing_cfg)
 }
 
 void CAN_init(uint32_t baud_rate, CCAN_MSG_OBJ_T* msg_object,
-		void (*CAN_rx)(uint8_t msg_obj_num), void (*CAN_tx)(uint8_t msg_obj_num),
-		void (*CAN_error)(uint32_t error_info))
+		void (*CAN_rx_cb)(uint8_t msg_obj_num), void (*CAN_tx_cb)(uint8_t msg_obj_num),
+		void (*CAN_error_cb)(uint32_t error_info))
 {
 	uint32_t CanApiClkInitTable[2];
 	/* Publish CAN Callback Functions */
 	CCAN_CALLBACKS_T callbacks = {
-		CAN_rx,
-		CAN_tx,
-		CAN_error,
+		CAN_rx_cb,
+		CAN_tx_cb,
+		CAN_error_cb,
 		NULL,
 		NULL,
 		NULL,
@@ -59,7 +59,7 @@ void CAN_init(uint32_t baud_rate, CCAN_MSG_OBJ_T* msg_object,
 }
 
 /* Can only do uint64_t right now */
-void CAN_send(uint8_t msgobj, uint8_t dlc, uint32_t mode_id, uint32_t mask, uint64_t value)
+void CAN_send_message(uint8_t msgobj, uint8_t dlc, uint32_t mode_id, uint32_t mask, uint64_t value)
 {
 	msg_obj->msgobj  = msgobj;
 	msg_obj->mode_id = mode_id;
@@ -76,7 +76,7 @@ void CAN_send(uint8_t msgobj, uint8_t dlc, uint32_t mode_id, uint32_t mask, uint
 	LPC_CCAN_API->can_transmit(msg_obj);
 }
 
-void CAN_receive(uint8_t msgobj, uint32_t mode_id, uint32_t mask)
+void CAN_setup_receiver(uint8_t msgobj, uint32_t mode_id, uint32_t mask)
 {
 	msg_obj->msgobj = msgobj;
 	msg_obj->mode_id = mode_id;
