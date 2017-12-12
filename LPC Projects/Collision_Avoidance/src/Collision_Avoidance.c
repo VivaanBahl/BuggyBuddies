@@ -254,7 +254,7 @@ int main(void)
     	LPC_CCAN_API->can_transmit(&msg_obj);
 
     	volatile int i = 0;
-    	while (i < 1000000)
+    	while (i < 10000)
     	{
     		i++;
     	}
