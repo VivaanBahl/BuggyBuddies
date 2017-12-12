@@ -69,27 +69,27 @@ void CAN_rx(uint8_t msg_obj_num) {
 	int new_desired_angle = 0;
 
 
-//	if (msg_obj.mode_id == 0)
-//	{
-//		uint32_t ultrasonic_distance_mm;
-//		ultrasonic_distance_mm |= (msg_obj.data[0]);
-//		ultrasonic_distance_mm |= (msg_obj.data[1]) << 8;
-//		ultrasonic_distance_mm |= (msg_obj.data[2]) << 16;
-//		ultrasonic_distance_mm |= (msg_obj.data[3]) << 24;
-//
-//		if (ultrasonic_distance_mm < 1200)
-//		{
-//			Board_UARTPutSTR("ooooooops\n");
-//			new_desired_angle = 1000;
-//		}
-//	}
-//	else if(msg_obj.mode_id == 0x100)
-//	{
+	if (msg_obj.mode_id == 0)
+	{
+		uint32_t ultrasonic_distance_mm;
+		ultrasonic_distance_mm |= (msg_obj.data[0]);
+		ultrasonic_distance_mm |= (msg_obj.data[1]) << 8;
+		ultrasonic_distance_mm |= (msg_obj.data[2]) << 16;
+		ultrasonic_distance_mm |= (msg_obj.data[3]) << 24;
+
+		if (ultrasonic_distance_mm < 1200)
+		{
+			Board_UARTPutSTR("ooooooops\n");
+			new_desired_angle = 1000;
+		}
+	}
+	else if(msg_obj.mode_id == 0x100)
+	{
 		new_desired_angle |= (msg_obj.data[0]);
 		new_desired_angle |= (msg_obj.data[1]) << 8;
 		new_desired_angle |= (msg_obj.data[2]) << 16;
 		new_desired_angle |= (msg_obj.data[3]) << 24;
-//	}
+	}
 
 	desired_steering_angle = new_desired_angle;
 }
