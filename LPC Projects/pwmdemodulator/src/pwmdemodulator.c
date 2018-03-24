@@ -153,6 +153,12 @@ void TIMER16_1_IRQHandler(void)
 		if (BrakeRiseTime != 0)
 		{
 			brake = CurrentTimer > PWM_SWITCH_THRESHOLD;
+			msg_obj.msgobj  = 1;
+			msg_obj.mode_id = 0x200;
+			msg_obj.mask    = 0x0;
+			msg_obj.dlc     = 1;
+			msg_obj.data[0] = 0x00 | brake;
+			LPC_CCAN_API->can_transmit(&msg_obj);
 		}
 	}
 	LPC_TIMER16_1->TC = 0;
