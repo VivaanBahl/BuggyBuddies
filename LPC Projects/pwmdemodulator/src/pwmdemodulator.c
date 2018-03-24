@@ -153,7 +153,7 @@ void TIMER16_1_IRQHandler(void)
 		if (BrakeRiseTime != 0)
 		{
 			brake = CurrentTimer > PWM_SWITCH_THRESHOLD;
-			msg_obj.msgobj  = 0;
+			msg_obj.msgobj  = 1;
 			msg_obj.mode_id = 0x200;
 			msg_obj.mask    = 0x0;
 			msg_obj.dlc     = 1;
