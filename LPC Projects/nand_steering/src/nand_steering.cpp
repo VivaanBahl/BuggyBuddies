@@ -35,17 +35,9 @@
 
 int main(void) {
 
-#if defined (__USE_LPCOPEN)
-    // Read clock settings and update SystemCoreClock variable
-    SystemCoreClockUpdate();
-#if !defined(NO_BOARD_LIB)
-    // Set up and initialize all required blocks and
-    // functions related to the board hardware
-    Board_Init();
-    // Set the LED to the state of "On"
-    Board_LED_Set(0, true);
-#endif
-#endif
+	SystemCoreClockUpdate(); //updates clock rate (why we need?)
+	Board_Init(); //initializes board
+	//Board_LED_Set(0, false);
 
     /*DServo.setDirectionPin(SERVO_ControlPin);
 

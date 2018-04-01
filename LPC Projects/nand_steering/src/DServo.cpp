@@ -6,20 +6,11 @@
 /* Transmit and receive ring buffers */
 STATIC RINGBUFF_T txring, rxring;
 
-/* Transmit and receive ring buffer sizes */
-#define UART_SRB_SIZE 128	/* Send */
-#define UART_RRB_SIZE 32	/* Receive */
-
-/* Transmit and receive buffers */
 static uint8_t rxbuff[UART_RRB_SIZE], txbuff[UART_SRB_SIZE];
 
 void DServoClass::begin(long baud){
 	//uint8_t key; //eventually declare these variables outside of begin, but for now leave it until this works
 	//int bytes;
-
-	SystemCoreClockUpdate(); //updates clock rate (why we need?)
-	Board_Init(); //initializes board
-	//Board_LED_Set(0, false);
 
 	/* Setup UART for 115.2K8N1 */
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_6, (IOCON_FUNC1 | IOCON_MODE_INACT));/* RXD */
@@ -31,38 +22,13 @@ void DServoClass::begin(long baud){
 	Chip_UART_TXEnable(LPC_USART); //enables connection to TX (transmit)
 
 	/* Before using the ring buffers, initialize them using the ring
-	   buffer init function */
-	RingBuffer_Init(&rxring, rxbuff, 1, UART_RRB_SIZE); //initialize transmit and receive buffers
-	RingBuffer_Init(&txring, txbuff, 1, UART_SRB_SIZE);
+		   buffer init function */
+		RingBuffer_Init(&rxring, rxbuff, 1, UART_RRB_SIZE);
+		RingBuffer_Init(&txring, txbuff, 1, UART_SRB_SIZE);
 
-	/*enables interrupts for UART*/
-	Chip_UART_IRQRBHandler(LPC_USART, &rxring, &txring);
-
-	/* Enable receive data and line status interrupt (do we need?)*/
-	Chip_UART_IntEnable(LPC_USART, (UART_IER_RBRINT | UART_IER_RLSINT)); //enables interrupt UART_IER_*
 
 	Chip_GPIO_SetPinDIROutput(LPC_GPIO, PIN_A_PORT, PIN_A); //Sets PIN_A to output pin
 
-	/* Configure pins as GPIO with pullup (BB for pinint)*/
-	//Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIN_A_ID,
-	//(IOCON_FUNC0 | IOCON_MODE_PULLUP | IOCON_DIGMODE_EN));
-
-	/* Configure channel interrupts as edge sensitive and both edge interrupt (BB for pinint)*/
-	//Chip_GPIO_SetupPinInt(LPC_GPIO, PIN_A_PORT, PIN_A, GPIO_INT_BOTH_EDGES);
-
-	/* Enable GPIO pin interrupts */
-	//Chip_GPIO_EnableInt(LPC_GPIO, PIN_A_PORT, (1 << PIN_A));
-
-	/* Enable wakeup for GPIO pins used in this example (BB for pinint)*/
-	//Chip_SYSCTL_EnableStartPin(0x04); // Pin A
-	//Chip_SYSCTL_ResetStartPin(0x04); // Pin A
-
-	/* Enable all clocks, even those turned off at wake power up (BB for pinint)*/
-	Chip_SYSCTL_SetWakeup(~(SYSCTL_SLPWAKE_IRCOUT_PD | SYSCTL_SLPWAKE_IRC_PD |
-	SYSCTL_SLPWAKE_FLASH_PD | SYSCTL_SLPWAKE_SYSOSC_PD | SYSCTL_SLPWAKE_SYSOSC_PD | SYSCTL_SLPWAKE_SYSPLL_PD));
-
-	/* Enable interrupt in the NVIC */
-	//NVIC_EnableIRQ(SERVOINT_NVIC_NAME);
 
 	Status_Return_Value = READ;
 
@@ -97,7 +63,7 @@ unsigned int DServoClass::setMode(unsigned char ID, bool Dynamixel_Mode, unsigne
 
     transmitInstructionPacket();
 
-    if (Status_Return_Value == ALL){
+    if (Status_Return_Value == READ){
     readStatusPacket();
         if (Status_Packet_Array[2] != 0){
         return (Status_Packet_Array[2] | 0xF000);   // If there is a error Returns error value
@@ -276,35 +242,35 @@ void DServoClass::transmitInstructionPacket(void){                              
 		Chip_GPIO_SetPinState(LPC_GPIO, PIN_A_PORT, PIN_A, true); //sets pin A to high
 	}
 
-/*NEW CODE STARTS HERE
+//NEW CODE STARTS HERE
 
-	unsigned char Temp_Instruction_Packet_Array[16]; //size of instruction packet + 2 headers
-	Temp_Instruction_Packet_Array[0] = HEADER;
-	Temp_Instruction_Packet_Array[1] = HEADER;
-	for (int i = 2; i < 16; i++)
-	{
-		Temp_Instruction_Packet_Array[i] = Instruction_Packet_Array[i-2];
-	}
-	uint32_t res = 0;
-	res = Chip_UART_SendRB(LPC_USART, &txring, Temp_Instruction_Packet_Array, 16);
+	unsigned char Header_Array[2]; //size of 2 headers
+	Header_Array[0] = HEADER;
+	Header_Array[1] = HEADER;
 
-	for (int i = 0; i < 10000000; i++){}
+	/* send Header_Array*/
+	Chip_UART_SendRB(LPC_USART, &txring, Header_Array, 2);
+
+	/* send first three elements of Instruction_Packet_Array to txring */
+
+	Chip_UART_SendRB(LPC_USART, &txring, Instruction_Packet_Array, 3);
+
+	for (int i = 0; i < 10000000; i++){} //wait for information to send
 
 	unsigned int checksum_packet = Instruction_Packet_Array[0] + Instruction_Packet_Array[1] + Instruction_Packet_Array[2]; //start reading from index 3 of instruction packet
 
-	for (unsigned char i = 5; i <= Instruction_Packet_Array[3]; i++){
-	    	Chip_UART_SendRB(LPC_USART, &txring, &Temp_Instruction_Packet_Array[i], 1);    // Write Instruction & Parameters (if there are any) to serial
-	        checksum_packet += Instruction_Packet_Array[i];
+	for (unsigned char i = 3; i <= Instruction_Packet_Array[3]; i++){
+	    	Chip_UART_SendRB(LPC_USART, &txring, &Instruction_Packet_Array[i], 1);    // Write Instruction & Parameters (if there are any) to serial
+	    	checksum_packet += Instruction_Packet_Array[i];
 	}
 
 
-	Chip_GPIO_DisableInt(LPC_GPIO, PIN_A_PORT, (1 << PIN_A));
     Checksum_Array[0] = ~checksum_packet & 0xFF;
 	Chip_UART_SendRB(LPC_USART, &txring, Checksum_Array, 1);
 
-//NEW CODE END*/
+//NEW CODE END
 
-/*This is what the new code replaces (starting from here)*/
+/*This is what the new code replaces (starting from here)
 	Header_Array[0] = HEADER;
 	Header_Array[1] = HEADER;
 
@@ -394,7 +360,14 @@ unsigned int DServoClass::readStatusPacket(void){
 	}*/
 
     //pop off values on the receive ring buffer and stores in temp status packet array
-        Chip_UART_ReadBlocking(LPC_USART, Temp_Status_Packet_Array, 2);
+
+    	/*char header1 = Board_UARTGetChar();
+    	char header2 = Board_UARTGetChar();
+    	char header3 = Board_UARTGetChar();
+    	 */
+
+    	//Chip_UART_ReadBlocking(LPC_USART, Temp_Status_Packet_Array, 2);
+    	Chip_UART_ReadRB(LPC_USART, &rxring, &Temp_Status_Packet_Array, 2);
 
         if (Temp_Status_Packet_Array[0] == 0xFF && First_Header != 0xFF){
         	First_Header = Temp_Status_Packet_Array[0];                                                 // Clear 1st header from RX buffer (should be 0xFF)
@@ -404,17 +377,17 @@ unsigned int DServoClass::readStatusPacket(void){
 
         if(Temp_Status_Packet_Array[1] == 0xFF && First_Header == 0xFF){
 
-        	Status_Packet_Array[0] = Chip_UART_ReadBlocking(LPC_USART, &Status_Packet_Array[0], 1);                                   // ID sent from Dynamixel
-        	Status_Packet_Array[1] = Chip_UART_ReadBlocking(LPC_USART, &Status_Packet_Array[1], 1);                                   // Frame Length of status packet
-        	Status_Packet_Array[2] = Chip_UART_ReadBlocking(LPC_USART, &Status_Packet_Array[2], 1);                                   // Error byte
+        	Status_Packet_Array[0] = Chip_UART_ReadRB(LPC_USART, &rxring, &Status_Packet_Array[0], 1);                                   // ID sent from Dynamixel
+        	Status_Packet_Array[1] = Chip_UART_ReadRB(LPC_USART, &rxring, &Status_Packet_Array[1], 1);                                   // Frame Length of status packet
+        	Status_Packet_Array[2] = Chip_UART_ReadRB(LPC_USART, &rxring, &Status_Packet_Array[2], 1);                                   // Error byte
 
         	do{
-        		Status_Packet_Array[Counter + 3] = Chip_UART_ReadBlocking(LPC_USART, &Status_Packet_Array[Counter + 3], 1);          //set values in 3rd to nth index of Status Packet to corresponding
+        		Status_Packet_Array[Counter + 3] = Chip_UART_ReadRB(LPC_USART, &rxring, &Status_Packet_Array[Counter + 3], 1);          //set values in 3rd to nth index of Status Packet to corresponding
         																						   //values in the temporary Status Packet Array
         		Counter++;
         	}while(Status_Packet_Array[1] > Counter);                           // Read Parameter(s) into array
 
-        	Status_Packet_Array[Counter + 4] = Chip_UART_ReadBlocking(LPC_USART, &Status_Packet_Array[Counter + 4], 1);                         // Read Check sum (trace through before verify is correct)
+        	Status_Packet_Array[Counter + 4] = Chip_UART_ReadRB(LPC_USART, &rxring, &Status_Packet_Array[Counter + 4], 1);                         // Read Check sum (trace through before verify is correct)
 
     	}else{
     		return Status_Packet_Array[2] = 0x80;                                      // Return with Error if two headers are not found

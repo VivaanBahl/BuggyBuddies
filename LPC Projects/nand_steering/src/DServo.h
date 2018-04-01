@@ -131,6 +131,9 @@
 #define STATUS_PACKET_TIMEOUT           50      // in millis()
 #define STATUS_FRAME_BUFFER             5
 
+/* Transmit and receive ring buffer sizes */
+#define UART_SRB_SIZE 128	/* Send */
+#define UART_RRB_SIZE 32	/* Receive */
 
 class DServoClass {
 	private:
