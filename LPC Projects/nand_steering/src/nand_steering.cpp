@@ -33,6 +33,7 @@
 	Chip_GPIO_ClearInts(LPC_GPIO, PIN_A_PORT, (1 << PIN_A));
 }*/
 
+
 int main(void) {
 
 	SystemCoreClockUpdate(); //updates clock rate (why we need?)
