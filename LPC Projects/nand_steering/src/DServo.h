@@ -157,6 +157,7 @@ class DServoClass {
 	public:
 	    void begin(long baud);
 	    void setDirectionPin(unsigned char);
+	    void deconstructor();
 
         //unsigned int Time_Counter;    //current time in milliseconds
 

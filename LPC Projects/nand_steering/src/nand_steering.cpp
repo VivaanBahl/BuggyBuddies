@@ -14,6 +14,7 @@
 #else
 #include "board.h"
 #include "DServo.h"
+#include "easyTimer.h"
 #endif
 #endif
 
@@ -27,17 +28,14 @@
 #define CW_LIMIT_ANGLE 0x001        // lowest clockwise angle is 1, as when set to 0 it set servo to wheel mode
 #define CCW_LIMIT_ANGLE 0xFFF       // Highest anit-clockwise angle is 0XFFF, as when set to 0 it set servo to wheel mode
 
-//unsigned int pos = 0;
-
-/*void SERVOINT_IRQ_HANDLER (void) {
-	Chip_GPIO_ClearInts(LPC_GPIO, PIN_A_PORT, (1 << PIN_A));
-}*/
 
 
 int main(void) {
 
 	SystemCoreClockUpdate(); //updates clock rate (why we need?)
 	Board_Init(); //initializes board
+
+	ET.InitEasyTimer();
 	//Board_LED_Set(0, false);
 
     /*DServo.setDirectionPin(SERVO_ControlPin);
@@ -68,7 +66,7 @@ int main(void) {
     DServo.begin(SERVO_SET_Baudrate);                                    // We now need to set Ardiuno to the new Baudrate speed
     DServo.setMode(SERVO_ID, SERVO, CW_LIMIT_ANGLE, CCW_LIMIT_ANGLE);    // set mode to SERVO and set angle limits
 
-    for(int j = 0; j < 1000000; j++){}
+    ET.delay(500);
 
 
     // Force the counter to be placed into memory
@@ -76,7 +74,7 @@ int main(void) {
     // Enter an infinite loop, just incrementing a counter
     while(1) {
     	unsigned int pos = DServo.readPosition(SERVO_ID);
-    	for(int j = 0; j < 5000000; j++){}
+    	ET.delay(2000);
     	/*DServo.servo(SERVO_ID,0,0x100);  //  Move servo to max angle at max speed (1023)
     	for(int j = 0; j < 2000000; j++){}
 
@@ -90,5 +88,7 @@ int main(void) {
 
         i++ ;
     }
+
+    DServo.deconstructor();
     return 0;
 }

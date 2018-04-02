@@ -2,15 +2,16 @@
 #include "chip.h"
 #include "board.h"
 #include "string.h"
+#include "uart.c"
+#include "easyTimer.h"
 
-/* Transmit and receive ring buffers */
-STATIC RINGBUFF_T txring, rxring;
 
-static uint8_t rxbuff[UART_RRB_SIZE], txbuff[UART_SRB_SIZE];
 
 void DServoClass::begin(long baud){
-	//uint8_t key; //eventually declare these variables outside of begin, but for now leave it until this works
-	//int bytes;
+
+	//Initialize UART PinMuxing
+	Init_UART_PinMux();
+	ET.InitEasyTimer();
 
 	/* Setup UART for 115.2K8N1 */
 	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO1_6, (IOCON_FUNC1 | IOCON_MODE_INACT));/* RXD */
@@ -23,8 +24,15 @@ void DServoClass::begin(long baud){
 
 	/* Before using the ring buffers, initialize them using the ring
 		   buffer init function */
-		RingBuffer_Init(&rxring, rxbuff, 1, UART_RRB_SIZE);
-		RingBuffer_Init(&txring, txbuff, 1, UART_SRB_SIZE);
+	RingBuffer_Init(&rxring, rxbuff, 1, UART_RRB_SIZE);
+	RingBuffer_Init(&txring, txbuff, 1, UART_SRB_SIZE);
+
+	// Enable receive data and line status interrupt
+	Chip_UART_IntEnable(LPC_USART, (UART_IER_RBRINT | UART_IER_RLSINT));
+
+	//preemption = 1, sub-priority = 1
+	NVIC_SetPriority(UART0_IRQn, 1);
+	NVIC_EnableIRQ(UART0_IRQn);
 
 
 	Chip_GPIO_SetPinDIROutput(LPC_GPIO, PIN_A_PORT, PIN_A); //Sets PIN_A to output pin
@@ -255,7 +263,7 @@ void DServoClass::transmitInstructionPacket(void){                              
 
 	Chip_UART_SendRB(LPC_USART, &txring, Instruction_Packet_Array, 3);
 
-	for (int i = 0; i < 10000000; i++){} //wait for information to send
+	ET.delay(1000);
 
 	unsigned int checksum_packet = Instruction_Packet_Array[0] + Instruction_Packet_Array[1] + Instruction_Packet_Array[2]; //start reading from index 3 of instruction packet
 
@@ -392,6 +400,13 @@ unsigned int DServoClass::readStatusPacket(void){
     	}else{
     		return Status_Packet_Array[2] = 0x80;                                      // Return with Error if two headers are not found
     	}
+}
+
+void DServoClass::deconstructor()
+{
+	//DeInitialize UART0 peripheral
+	NVIC_DisableIRQ(UART0_IRQn);
+	Chip_UART_DeInit(LPC_USART);
 }
 
 /*void DServoClass::clearRXbuffer(void){
