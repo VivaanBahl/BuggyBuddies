@@ -75,10 +75,10 @@ int main(void) {
     while(1) {
     	//unsigned int pos = DServo.readPosition(SERVO_ID);
     	//ET.delay(2000);
-    	for(int j = 0; j < 100000; j++){}
+    	for(int j = 0; j < 500000; j++){}
     	DServo.servo(SERVO_ID,0,0x100);
     	//ET.delay(2000);
-    	for(int j = 0; j < 100000; j++){}
+    	for(int j = 0; j < 500000; j++){}
     	DServo.servo(SERVO_ID,0x0FF,0x100);   // Move servo to angle 1(0.088 degree) at speed 100
 
     	/*DServo.servo(SERVO_ID,0,0x100);  //  Move servo to max angle at max speed (1023)

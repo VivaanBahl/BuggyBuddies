@@ -253,14 +253,14 @@ void DServoClass::transmitInstructionPacket(void){                              
 
 //NEW CODE STARTS HERE
 
-	unsigned char Header_Array[2]; //size of 2 headers
+	/*unsigned char Header_Array[2]; //size of 2 headers
 	Header_Array[0] = HEADER;
 	Header_Array[1] = HEADER;
 
-	/* send Header_Array*/
+	// send Header_Array
 	Chip_UART_SendRB(LPC_USART, &txring, Header_Array, 2);
 
-	/* send first three elements of Instruction_Packet_Array to txring */
+	// send first three elements of Instruction_Packet_Array to txring
 
 	Chip_UART_SendRB(LPC_USART, &txring, Instruction_Packet_Array, 3);
 
@@ -276,46 +276,39 @@ void DServoClass::transmitInstructionPacket(void){                              
 
 	Chip_UART_SendRB(LPC_USART, &txring, Checksum_Array, 1);
 
-	ET.delay(5);
+	ET.delay(5);*/
 
 //NEW CODE END
 
-/*This is what the new code replaces (starting from here)
+//This is what the new code replaces (starting from here)
 	Header_Array[0] = HEADER;
 	Header_Array[1] = HEADER;
-
-	for(int i = 0; i < 10; i++){
-		if ((Chip_UART_ReadLineStatus(LPC_USART) & UART_LSR_RDR) != 0) break;
-	}
-
 	Chip_UART_SendBlocking(LPC_USART, Header_Array, 2); //sending the header array
 	Chip_UART_SendBlocking(LPC_USART, Instruction_Packet_Array, 3); //sending the first 3 bytes in the Instruction Packet
-
 
     unsigned int checksum_packet = Instruction_Packet_Array[0] + Instruction_Packet_Array[1] + Instruction_Packet_Array[2]; //start reading from index 3 of instruction packet
 
     for (unsigned char i = 3; i <= Instruction_Packet_Array[1]; i++){
     	Chip_UART_SendBlocking(LPC_USART, &Instruction_Packet_Array[i], 1);    // Write Instruction & Parameters (if there are any) to serial
-        checksum_packet += Instruction_Packet_Array[i];
+    	checksum_packet += Instruction_Packet_Array[i];
     }
 
     //Chip_GPIO_DisableInt(LPC_GPIO, PIN_A_PORT, (1 << PIN_A));
 
     Checksum_Array[0] = ~checksum_packet & 0xFF;
     Chip_UART_SendBlocking(LPC_USART, Checksum_Array, 1); //sending the checksum array
-
-//This is where the new code replacement ends*/
-
-    while(UART_LSR_RDR == 0) {} //wait for TX data to be sent
+    ET.delay(1);
+//This is where the new code replacement ends
+    //while(UART_LSR_RDR == 0) {} //wait for TX data to be sent
 
     pin_a = Chip_GPIO_GetPinState(LPC_GPIO, PIN_A_PORT, PIN_A); //gets pin state
     if (pin_a == true) //if pin is high, set state to low
     {
-    	Chip_GPIO_SetPinState(LPC_GPIO, PIN_A_PORT, PIN_A, false); //sets pin A to low
+    	Chip_GPIO_SetPinState(LPC_GPIO, PIN_A_PORT, PIN_A, false); //sets pin A to high
     	pin_a = false;
     }
 
-    //Chip_GPIO_EnableInt(LPC_GPIO, PIN_A_PORT, (1 << PIN_A)); //enable interrupts again for pin A
+    //Chip_GPIO_EnableInt(LPC_GPIO, PIN_A_PORT, (1 << PIN_A)); //enable interrupts again for pin A*/
 
 }
 
