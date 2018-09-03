@@ -1,7 +1,7 @@
 #ifndef DServo_h
 #define DServo_h
-#define PIN_A					2 /* GPIO pin number mapped to PIN_A*/
-#define PIN_A_PORT				0 /* GPIO port number mapped to PIN_A */
+#define PIN_A					0 /* GPIO pin number mapped to PIN_A*/
+#define PIN_A_PORT				2 /* GPIO port number mapped to PIN_A */
 #define IOCON_PIN_A_ID			IOCON_PIO0_2 /* IOCON pin identifer */
 #define SERVOINT_IRQ_HANDLER	PIOINT0_IRQHandler /* t1: GPIO interrupt IRQ function name */
 #define SERVOINT_NVIC_NAME		EINT0_IRQn /* t1: GPIO interrupt NVIC interrupt name */

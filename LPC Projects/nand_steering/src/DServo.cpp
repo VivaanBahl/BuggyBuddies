@@ -97,7 +97,7 @@ unsigned int DServoClass::servo(unsigned char ID,unsigned int Position,unsigned 
     transmitInstructionPacket();
 
 
-    if (ID == 0XFE || Status_Return_Value != ALL ){     // If ID of FE is used no status packets are returned so we do not need to check it
+    /*if (ID == 0XFE || Status_Return_Value != ALL ){     // If ID of FE is used no status packets are returned so we do not need to check it
         return (0x00);
     }else{
         readStatusPacket();
@@ -106,7 +106,7 @@ unsigned int DServoClass::servo(unsigned char ID,unsigned int Position,unsigned 
         }else{
             return (Status_Packet_Array[2] | 0xF000);   // If there is a error Returns error value
         }
-    }
+    }*/
 
 }
 
@@ -248,6 +248,7 @@ void DServoClass::transmitInstructionPacket(void){                              
 	if (pin_a == false) //if pin is low, set state to high
 	{
 		Chip_GPIO_SetPinState(LPC_GPIO, PIN_A_PORT, PIN_A, true); //sets pin A to high
+		pin_a = true;
 	}
 
 //NEW CODE STARTS HERE
@@ -263,18 +264,19 @@ void DServoClass::transmitInstructionPacket(void){                              
 
 	Chip_UART_SendRB(LPC_USART, &txring, Instruction_Packet_Array, 3);
 
-	ET.delay(1000);
-
 	unsigned int checksum_packet = Instruction_Packet_Array[0] + Instruction_Packet_Array[1] + Instruction_Packet_Array[2]; //start reading from index 3 of instruction packet
 
-	for (unsigned char i = 3; i <= Instruction_Packet_Array[3]; i++){
-	    	Chip_UART_SendRB(LPC_USART, &txring, &Instruction_Packet_Array[i], 1);    // Write Instruction & Parameters (if there are any) to serial
-	    	checksum_packet += Instruction_Packet_Array[i];
-	}
+			for (unsigned char i = 3; i <= Instruction_Packet_Array[1]; i++){
+			    	Chip_UART_SendRB(LPC_USART, &txring, &Instruction_Packet_Array[i], 1);    // Write Instruction & Parameters (if there are any) to serial
+			    	checksum_packet += Instruction_Packet_Array[i];
+			}
 
 
-    Checksum_Array[0] = ~checksum_packet & 0xFF;
+	Checksum_Array[0] = ~checksum_packet & 0xFF;
+
 	Chip_UART_SendRB(LPC_USART, &txring, Checksum_Array, 1);
+
+	ET.delay(5);
 
 //NEW CODE END
 
@@ -306,10 +308,11 @@ void DServoClass::transmitInstructionPacket(void){                              
 
     while(UART_LSR_RDR == 0) {} //wait for TX data to be sent
 
-    bool pin_a1 = Chip_GPIO_GetPinState(LPC_GPIO, PIN_A_PORT, PIN_A); //gets pin state
-    if (pin_a1 == true) //if pin is high, set state to low
+    pin_a = Chip_GPIO_GetPinState(LPC_GPIO, PIN_A_PORT, PIN_A); //gets pin state
+    if (pin_a == true) //if pin is high, set state to low
     {
     	Chip_GPIO_SetPinState(LPC_GPIO, PIN_A_PORT, PIN_A, false); //sets pin A to low
+    	pin_a = false;
     }
 
     //Chip_GPIO_EnableInt(LPC_GPIO, PIN_A_PORT, (1 << PIN_A)); //enable interrupts again for pin A

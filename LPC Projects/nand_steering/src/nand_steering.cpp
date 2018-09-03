@@ -38,9 +38,9 @@ int main(void) {
 	ET.InitEasyTimer();
 	//Board_LED_Set(0, false);
 
-    /*DServo.setDirectionPin(SERVO_ControlPin);
+    DServo.setDirectionPin(SERVO_ControlPin);
 
-      for(int b=1; b<0xFF; b++){
+      /*for(int b=1; b<0xFF; b++){
         long Baudrate_BPS = 0;
         Baudrate_BPS = 2000000/(b+1);
         DServo.begin(Baudrate_BPS);
@@ -73,8 +73,14 @@ int main(void) {
     volatile static int i = 0 ;
     // Enter an infinite loop, just incrementing a counter
     while(1) {
-    	unsigned int pos = DServo.readPosition(SERVO_ID);
-    	ET.delay(2000);
+    	//unsigned int pos = DServo.readPosition(SERVO_ID);
+    	//ET.delay(2000);
+    	for(int j = 0; j < 100000; j++){}
+    	DServo.servo(SERVO_ID,0,0x100);
+    	//ET.delay(2000);
+    	for(int j = 0; j < 100000; j++){}
+    	DServo.servo(SERVO_ID,0x0FF,0x100);   // Move servo to angle 1(0.088 degree) at speed 100
+
     	/*DServo.servo(SERVO_ID,0,0x100);  //  Move servo to max angle at max speed (1023)
     	for(int j = 0; j < 2000000; j++){}
 
