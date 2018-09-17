@@ -69,6 +69,11 @@ int main(void) {
 
     ET.delay(500);
 
+    DServo.setStatusPaket(SERVO_ID, ALL);
+    DServo.setStatusPaket(SERVO_RECEIVE_ID, ALL);
+
+    DServo.setID(SERVO_ID, SERVO_RECEIVE_ID);
+
 
     // Force the counter to be placed into memory
     volatile static int i = 0 ;

@@ -43,7 +43,7 @@ void DServoClass::begin(long baud){
 }
 
 void DServoClass::setDirectionPin(unsigned char Control_ID){
-	Chip_GPIO_SetPinDIROutput(LPC_GPIO, PIN_A_PORT, Control_ID); //Sets PIN_A to output pin
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO, PIN_A_PORT, PIN_A); //Sets PIN_A to output pin
 
 }
 
@@ -92,12 +92,12 @@ unsigned int DServoClass::servo(unsigned char ID,unsigned int Position,unsigned 
     Instruction_Packet_Array[6] = (unsigned char)(Speed);
     Instruction_Packet_Array[7] = (unsigned char)((Speed & 0x0F00) >> 8);
 
-    clearRXbuffer();
+    //clearRXbuffer();
 
     transmitInstructionPacket();
 
 
-    if (ID == 0XFE || Status_Return_Value != ALL ){     // If ID of FE is used no status packets are returned so we do not need to check it
+    /*if (ID == 0XFE || Status_Return_Value != ALL ){     // If ID of FE is used no status packets are returned so we do not need to check it
         return (0x00);
     }else{
         readStatusPacket();
@@ -106,7 +106,7 @@ unsigned int DServoClass::servo(unsigned char ID,unsigned int Position,unsigned 
         }else{
             return (Status_Packet_Array[2] | 0xF000);   // If there is a error Returns error value
         }
-    }
+    }*/
 
 }
 
@@ -195,7 +195,7 @@ unsigned int DServoClass::setID(unsigned char ID, unsigned char New_ID){
 
 
 
-unsigned int DServoClass::setStatusPaket(unsigned char  ID,unsigned char Set){
+/*unsigned int DServoClass::setStatusPaket(unsigned char  ID,unsigned char Set){
 
     Instruction_Packet_Array[0] = ID;
     Instruction_Packet_Array[1] = SET_RETURN_LEVEL_LENGTH;
@@ -218,7 +218,7 @@ unsigned int DServoClass::setStatusPaket(unsigned char  ID,unsigned char Set){
         }
     }
 
-}
+}*/
 
 unsigned int DServoClass::reset(unsigned char ID){
 
@@ -238,6 +238,31 @@ unsigned int DServoClass::reset(unsigned char ID){
             return (Status_Packet_Array[2] | 0xF000);   // If there is a error Returns error value
         }
     }
+
+}
+
+unsigned int DServoClass::setStatusPaket(unsigned char  ID, unsigned char Set){
+
+    Instruction_Packet_Array[0] = ID;
+    Instruction_Packet_Array[1] = SET_RETURN_LEVEL_LENGTH;
+    Instruction_Packet_Array[2] = COMMAND_WRITE_DATA;
+    Instruction_Packet_Array[3] = EEPROM_RETURN_LEVEL;
+    Instruction_Packet_Array[4] = Set;
+
+    Status_Return_Value = Set;
+
+    transmitInstructionPacket();
+
+    /*if (ID == 0XFE || Status_Return_Value != ALL ){     // If ID of FE is used no status packets are returned so we do not need to check it
+        return (0x00);
+    }else{
+        readStatusPacket();
+        if (Status_Packet_Array[2] == 0){               // If there is no status packet error return value
+            return (Status_Packet_Array[0]);            // Return SERVO ID
+        }else{
+            return (Status_Packet_Array[2] | 0xF000);   // If there is a error Returns error value
+        }
+    }*/
 
 }
 
@@ -337,7 +362,9 @@ unsigned int DServoClass::readStatusPacket(void){
     }*/
 
     //pop off values on the receive ring buffer and stores in temp status packet array
-    /*Chip_UART_ReadBlocking(LPC_USART, Temp_Status_Packet_Array, 2);
+    Chip_UART_ReadBlocking(LPC_USART, Temp_Status_Packet_Array, 2);
+    unsigned char first = Temp_Status_Packet_Array[0];
+    unsigned char second = Temp_Status_Packet_Array[2];
 
     if (Temp_Status_Packet_Array[0] == 0xFF && First_Header != 0xFF){
     	First_Header = Temp_Status_Packet_Array[0];                                                 // Clear 1st header from RX buffer (should be 0xFF)
@@ -361,7 +388,7 @@ unsigned int DServoClass::readStatusPacket(void){
 
 	}else{
 		return Status_Packet_Array[2] = 0x80;                                      // Return with Error if two headers are not found
-	}*/
+	}
 
     //pop off values on the receive ring buffer and stores in temp status packet array
 
@@ -370,7 +397,10 @@ unsigned int DServoClass::readStatusPacket(void){
     	char header3 = Board_UARTGetChar();
     	 */
 
-    	//Chip_UART_ReadBlocking(LPC_USART, Temp_Status_Packet_Array, 2);
+
+    //BEGIN BAD CODE
+
+   /* 	//Chip_UART_ReadBlocking(LPC_USART, Temp_Status_Packet_Array, 2);
     	Chip_UART_ReadRB(LPC_USART, &rxring, &Temp_Status_Packet_Array, 2);
 
         if (Temp_Status_Packet_Array[0] == 0xFF && First_Header != 0xFF){
@@ -395,7 +425,7 @@ unsigned int DServoClass::readStatusPacket(void){
 
     	}else{
     		return Status_Packet_Array[2] = 0x80;                                      // Return with Error if two headers are not found
-    	}
+    	}*/
 }
 
 void DServoClass::deconstructor()
