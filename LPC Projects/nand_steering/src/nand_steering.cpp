@@ -1,9 +1,9 @@
 /*
 ===============================================================================
  Name        : main.c
- Author      : $(author)
+ Author      : Adam Quinn & Tiffany Yu
  Version     :
- Copyright   : $(copyright)
+ Copyright   : 2018
  Description : main definition
 ===============================================================================
 */
@@ -22,13 +22,16 @@
 
 
 
-#define SERVO_ID 0xFE               // ID of which we will set Dynamixel too
-#define SERVO_RECEIVE_ID 0x04
-#define SERVO_ControlPin 0x02       // Control pin of buffer chip, NOTE: this does not matter becasue we are not using a half to full contorl buffer.
-#define SERVO_SET_Baudrate 57600    // Baud rate speed which the Dynamixel will be set to (57600)
-#define CW_LIMIT_ANGLE 0x001        // lowest clockwise angle is 1, as when set to 0 it set servo to wheel mode
-#define CCW_LIMIT_ANGLE 0xFFF       // Highest anit-clockwise angle is 0XFFF, as when set to 0 it set servo to wheel mode
+#define SERVO_ID 0xFE               //Servo ID used for sending movement commands.
+#define SERVO_RECEIVE_ID 0x04		//Servo ID used for sending commands for which we expect a response.
+#define TRISTATE_TOGGLE_PORT 2
+#define TRISTATE_TOGGLE_PIN 0
+#define DYNAMIXEL_BAUD 57600
+#define CW_LIMIT_ANGLE 1950       //Limit angles determined by the construction of the steering system.
+#define CCW_LIMIT_ANGLE 2550
 
+#define NEUTRAL_ANGLE 2250
+#define DEFAULT_SPEED 0x100
 
 
 int main(void) {
@@ -37,62 +40,28 @@ int main(void) {
 	Board_Init(); //initializes board
 
 	ET.InitEasyTimer();
-	//Board_LED_Set(0, false);
 
-    DServo.setDirectionPin(SERVO_ControlPin);
+    DServo.setDirectionPin(TRISTATE_TOGGLE_PORT,TRISTATE_TOGGLE_PIN);
 
-      /*for(int b=1; b<0xFF; b++){
-        long Baudrate_BPS = 0;
-        Baudrate_BPS = 2000000/(b+1);
-        DServo.begin(Baudrate_BPS);
-        DServo.reset(0xFE);
-        for(int j = 0; j < 500000; j++){}
-      }
-      for(int j = 0; j < 1000000; j++){}
-
-      DServo.begin(57600);
-      DServo.setID(0xFE,SERVO_ID);
-      for(int j = 0; j < 500000; j++){}
-      DServo.setStatusPaket(SERVO_ID,READ);
-      DServo.setBaudRate(SERVO_ID,100000);
-      for(int j = 0; j < 500000; j++){}
-
-      DServo.begin(100000);
-      for(int j = 0; j < 500000; j++){}
-      DServo.setMode(SERVO_ID,SERVO,0x000,0xFFF);
-      for(int j = 0; j < 500000; j++){}
-      //Dynamixel.setMaxTorque(SERVO_ID,0x2FF);
-      //}*/
-
-    DServo.begin(SERVO_SET_Baudrate);                                    // We now need to set Ardiuno to the new Baudrate speed
+    DServo.begin(DYNAMIXEL_BAUD);                                    // We now need to set Ardiuno to the new Baudrate speed
     DServo.setMode(SERVO_ID, SERVO, CW_LIMIT_ANGLE, CCW_LIMIT_ANGLE);    // set mode to SERVO and set angle limits
-
-    ET.delay(500);
+    DServo.setID(SERVO_ID, SERVO_RECEIVE_ID);
+    DServo.servo(SERVO_ID,NEUTRAL_ANGLE,DEFAULT_SPEED);
+    DServo.setStatusPaket(SERVO_ID,ALL);
+    ET.delay(1000);
 
 
     // Force the counter to be placed into memory
     volatile static int i = 0 ;
     // Enter an infinite loop, just incrementing a counter
     while(1) {
-    	//unsigned int pos = DServo.readPosition(SERVO_ID);
-    	//ET.delay(2000);
-    	for(int j = 0; j < 500000; j++){}
-    	DServo.servo(SERVO_ID,0xA00,0x100);
-    	//ET.delay(2000);
-    	for(int j = 0; j < 500000; j++){}
-    	DServo.servo(SERVO_ID,0x800,0x100);   // Move servo to angle 1(0.088 degree) at speed 100
+    	ET.delay(1000);
+    	DServo.servo(SERVO_ID,2000,DEFAULT_SPEED);
+    	ET.delay(1000);
+    	DServo.servo(SERVO_ID,2500,DEFAULT_SPEED);   // Move servo to angle 1(0.088 degree) at speed 100
 
-    	int pos = DServo.readPosition(SERVO_RECEIVE_ID);
-
-    	/*DServo.servo(SERVO_ID,0,0x100);  //  Move servo to max angle at max speed (1023)
-    	for(int j = 0; j < 2000000; j++){}
-
-    	//pos = DServo.readPosition(SERVO_ID);
-
-
-    	DServo.servo(SERVO_ID,0x0FF,0x100);   // Move servo to angle 1(0.088 degree) at speed 100
-    	for(int j = 0; j < 2000000; j++){}
-    	//pos = DServo.readPosition(SERVO_ID);*/
+    	ET.delay(500);
+    	unsigned int pos = DServo.readPosition(SERVO_RECEIVE_ID);
 
 
         i++ ;

@@ -146,7 +146,8 @@ class DServoClass {
 	    unsigned char   Instruction_Packet_Array[14];   // Array to hold instruction packet data
 	    unsigned char   Status_Packet_Array[8];         // Array to hold returned status packet data
 	    unsigned long   Time_Counter;                   // Timer for time out watchers
-	    char            Direction_Pin;                  // Pin to control TX/RX buffer chip
+	    unsigned char   Direction_Pin;                  // Pin to control TX/RX buffer chip
+	    unsigned char   Direction_Port; 				// Port of the pin to control TX/RX buffer chip.
 	    unsigned char   Status_Return_Value;            // Status packet return states ( NON , READ , ALL ); default should be ALL
 
 	    unsigned char Header_Array[2];					//Array to hold HEADER data (0xFF for both indices)
@@ -156,7 +157,7 @@ class DServoClass {
 
 	public:
 	    void begin(long baud);
-	    void setDirectionPin(unsigned char);
+	    void setDirectionPin(unsigned char, unsigned char);
 	    void deconstructor();
 
         //unsigned int Time_Counter;    //current time in milliseconds
