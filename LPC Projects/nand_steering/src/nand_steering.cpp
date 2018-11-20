@@ -72,7 +72,7 @@ void CAN_rx(uint8_t msg_obj_num) {
 	msg_obj.msgobj = msg_obj_num;
 	/* Now load up the msg_obj structure with the CAN message */
 	LPC_CCAN_API->can_receive(&msg_obj);
-	int new_desired_angle = desired_steering_angle;
+	int new_desired_angle = /*desired_steering_angle*/5;
 
 	if (msg_obj.mode_id == 0x400) {
 		new_desired_angle = 0;
@@ -106,41 +106,20 @@ int main(void) {
 
 	uint32_t CanApiClkInitTable[2];
 	/* Publish CAN Callback Functions */
+
 	CCAN_CALLBACKS_T callbacks = { CAN_rx,
-	NULL, CAN_error,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL, };
+			CAN_rx, CAN_error,
+			NULL,
+			NULL,
+			NULL,
+			NULL,
+			NULL, };
 	SystemCoreClockUpdate();
 	Board_Init();
 	baudrateCalculate(TEST_CCAN_BAUD_RATE, CanApiClkInitTable);
 
 	/* Enable timer 1 clock */
 //	Chip_TIMER_Init(LPC_TIMER16_0);
-
-	/* Timer setup for match and interrupt at TICKRATE_HZ */
-	/*Chip_TIMER_Reset(LPC_TIMER16_0);
-	LPC_TIMER16_0->MR[0] = 0;
-	LPC_TIMER16_0->MR[3] = 5000;
-	LPC_TIMER16_0->PR = 48;
-	LPC_TIMER16_0->MCR = 0;
-	Chip_TIMER_ResetOnMatchEnable(LPC_TIMER16_0, 3);
-	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO0_8,
-			(IOCON_FUNC2 | IOCON_MODE_INACT));
-	LPC_TIMER16_0->PWMC = 0x1;
-	Chip_TIMER_Enable(LPC_TIMER16_0);
-
-	Chip_TIMER_Init(LPC_TIMER16_1);
-	Chip_TIMER_Reset(LPC_TIMER16_1);
-	Chip_TIMER_MatchEnableInt(LPC_TIMER16_1, 0);
-	Chip_TIMER_SetMatch(LPC_TIMER16_1, 0, 10000);
-	Chip_TIMER_ResetOnMatchEnable(LPC_TIMER16_1, 0);
-	LPC_TIMER16_1->PR = 48;
-	Chip_TIMER_Enable(LPC_TIMER16_1);
-	NVIC_ClearPendingIRQ(TIMER_16_1_IRQn);
-	NVIC_EnableIRQ(TIMER_16_1_IRQn);*/
 
 	// CAN
 	LPC_CCAN_API->init_can(&CanApiClkInitTable[0], TRUE);
@@ -153,6 +132,10 @@ int main(void) {
 	msg_obj.msgobj = 0;
 	msg_obj.mode_id = 0x400;
 	msg_obj.mask = 0x000;
+
+	/*msg_obj.msgobj = 1;
+	msg_obj.mode_id = 0 | CAN_MSGOBJ_EXT;  //receive all
+	msg_obj.mask = 0x7FF;*/
 	LPC_CCAN_API->config_rxmsgobj(&msg_obj);
 
 	/* Enable all clocks, even those turned off at wake power up */
